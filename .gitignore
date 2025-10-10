@@ -65,3 +65,10 @@ cli-config.json
 mcp.json
 unified_repo_list.json
 blocklist
+
+# -------------------------------
+# Temporary and planning files
+# -------------------------------
+plans/
+*.plan
+*.migration

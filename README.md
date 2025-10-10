@@ -1,4 +1,4 @@
-# Cursor Settings Repository
+# My ~/.cursor settings
 
 A comprehensive collection of Cursor AI editor settings, commands, and rules designed for professional development workflows. This repository contains reusable configurations that can be shared across teams and projects.
 
@@ -6,11 +6,32 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 
 ```
 .cursor/
-├── commands/           # Custom Cursor commands
+├── commands/           # Custom Cursor commands (10 commands)
 │   ├── commit.md      # Git commit automation
-│   └── pr.md          # Pull request management
+│   ├── git-branch.md  # Safe branch creation
+│   ├── git-reset.md   # Safe git reset with backup
+│   ├── git-status.md  # Multi-repository status check
+│   ├── k8s-check.md   # Safe Kubernetes resource inspection
+│   ├── k8s-diff.md    # Kubernetes deployment diff preview
+│   ├── k8s-validate.md # Kubernetes manifest validation
+│   ├── plan.md        # Project planning and task breakdown
+│   ├── pr.md          # Pull request management (consolidated)
+│   └── workspace-status.md # Multi-repository workspace overview
+├── hooks/             # Safety hooks (5 hooks)
+│   ├── block-dangerous-kubectl.sh    # Block dangerous kubectl commands
+│   ├── block-git-push-main.sh        # Block direct pushes to main/master
+│   ├── block-git-reset-hard.sh       # Block destructive git reset
+│   ├── check-branch-protection.sh    # Warn about edits on main/master
+│   └── suggest-safe-commands.sh      # Suggest safe command alternatives
+├── rules/             # Development rules (4 rule files)
+│   ├── safety.md      # Safety rules and protections
+│   ├── quality.md     # Code quality standards
+│   ├── workflow.md    # Development workflow rules
+│   └── integration.md # Linear/GitHub/MCP integration rules
 ├── docs/              # Detailed documentation
 ├── examples/          # Usage examples and templates
+├── backups/           # Backup of original rules
+├── plans/             # Migration plans and documentation
 ├── .gitignore         # Git ignore rules for Cursor files
 └── README.md          # This file
 ```
@@ -43,10 +64,21 @@ ln -s $PWD/.cursor ~/.cursor
 
 ```bash
 # In Cursor chat, try these commands:
-/commit          # Smart git commit with conventional format
-/pr              # Create pull request with quality checks
-/pr check        # Validate PR quality and completeness
-/pr ready        # Mark PR ready for review
+
+# Git workflow
+/git-branch feature/user-auth    # Create feature branch
+/git-status                      # Check repository status
+/commit                          # Smart commit with conventional format
+/pr                              # Create pull request
+
+# Kubernetes operations
+/k8s-check pods                  # Safe resource inspection
+/k8s-validate deployment.yaml   # Validate manifests
+/k8s-diff deployment.yaml       # Preview changes
+
+# Planning and workspace
+/plan "Add authentication"       # Create project plan
+/workspace-status               # Check multi-repo workspace
 ```
 
 ## 📋 Available Commands
@@ -56,7 +88,9 @@ ln -s $PWD/.cursor ~/.cursor
 | Command       | Description                               | Usage                      |
 | ------------- | ----------------------------------------- | -------------------------- |
 | `/commit`     | Smart git commit with conventional format | `/commit` or `/commit all` |
-| `/commit all` | Stage and commit all changes              | `/commit all`              |
+| `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth` |
+| `/git-reset`  | Safe git reset with automatic backup     | `/git-reset --soft HEAD~1` |
+| `/git-status` | Multi-repository status check            | `/git-status`              |
 
 ### Pull Request Commands
 
@@ -67,6 +101,42 @@ ln -s $PWD/.cursor ~/.cursor
 | `/pr validate` | Alternative to `/pr check`              | `/pr validate`                |
 | `/pr review`   | Alternative to `/pr check`              | `/pr review`                  |
 | `/pr ready`    | Mark PR ready for review                | `/pr ready`                   |
+
+### Kubernetes Commands
+
+| Command        | Description                             | Usage                         |
+| -------------- | --------------------------------------- | ----------------------------- |
+| `/k8s-check`   | Safe Kubernetes resource inspection     | `/k8s-check pods`             |
+| `/k8s-validate`| Kubernetes manifest validation          | `/k8s-validate deployment.yaml` |
+| `/k8s-diff`    | Kubernetes deployment diff preview      | `/k8s-diff deployment.yaml`  |
+
+### Planning Commands
+
+| Command        | Description                             | Usage                         |
+| -------------- | --------------------------------------- | ----------------------------- |
+| `/plan`        | Create project plan with task breakdown | `/plan "Add auth system"`     |
+| `/workspace-status` | Multi-repository workspace overview | `/workspace-status`           |
+
+## 🛡️ Safety Hooks
+
+This repository includes 5 safety hooks that automatically protect against dangerous operations:
+
+| Hook | Event | Protection |
+|------|-------|------------|
+| `block-dangerous-kubectl.sh` | `beforeShellExecution` | Blocks `kubectl delete` and `kubectl apply` |
+| `block-git-push-main.sh` | `beforeShellExecution` | Blocks direct pushes to main/master branches |
+| `block-git-reset-hard.sh` | `beforeShellExecution` | Blocks destructive `git reset --hard` |
+| `check-branch-protection.sh` | `afterFileEdit` | Warns about edits on main/master branches |
+| `suggest-safe-commands.sh` | `beforeSubmitPrompt` | Suggests safe alternatives for dangerous commands |
+
+## 📋 Development Rules
+
+The repository includes 4 comprehensive rule files:
+
+- **`rules/safety.md`** - Git safety, command safety, and data safety rules
+- **`rules/quality.md`** - Code quality, quality gates, and documentation standards
+- **`rules/workflow.md`** - Language, terminal, workspace, and branch management rules
+- **`rules/integration.md`** - Linear, GitHub, and MCP integration guidelines
 
 ## 🛠️ Customization
 
