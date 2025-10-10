@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "./hooks/block-dangerous-kubectl.sh"
+      },
+      {
+        "command": "./hooks/block-git-reset-hard.sh"
+      },
+      {
+        "command": "./hooks/block-git-push-main.sh"
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "./hooks/suggest-safe-commands.sh"
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "./hooks/check-branch-protection.sh"
+      }
+    ]
+  }
+}
