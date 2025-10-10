@@ -2,27 +2,60 @@
 
 ## Code Quality
 
+### Commit Standards
+
 - Use conventional commit format: `<type>(<scope>): <description>`
 - Types: feat, fix, chore, docs, style, refactor, test
 - Present tense, imperative mood
-- Include Linear issue references
+- Include Linear issue references when applicable
+- Keep descriptions concise but descriptive
+
+### Code Style
+
 - Follow project-specific linting rules
-- Maintain consistent code style
+- Maintain consistent code style across the project
+- Use meaningful variable and function names
 - Include proper error handling
 - Write clear, self-documenting code
+- Add comments for complex logic
+
+### Code Organization
+
+- Keep functions small and focused
+- Use appropriate design patterns
+- Maintain clear separation of concerns
+- Follow DRY (Don't Repeat Yourself) principles
+- Organize imports and dependencies properly
 
 ## Quality Gates
 
-- All tests must pass before PR creation
-- Linting must pass
+### Pre-commit Checks
+
+- All tests must pass before committing
+- Linting must pass without errors
 - Build must succeed
 - Security scans must pass
+- No sensitive data in commits
+
+### Pre-PR Checks
+
+- All quality gates must pass
+- Code review requirements met
+- Documentation updated
+- Tests cover new functionality
+- Performance impact assessed
+
+### Testing Requirements
+
 - All commands must be testable
 - Include edge case testing
-- Verify safety mechanisms
-- Test error handling
+- Verify safety mechanisms work
+- Test error handling paths
+- Maintain test coverage standards
 
 ## Documentation Quality
+
+### Content Standards
 
 - Clear and concise explanations
 - Practical examples and use cases
@@ -31,51 +64,90 @@
 - Avoid redundant information
 - Avoid overly complex explanations
 
-## Plan Documentation
+### Structure Requirements
 
-### Plan Creation Guidelines
+- Use proper markdown formatting
+- Include table of contents for long documents
+- Add code examples with syntax highlighting
+- Include troubleshooting sections
+- Provide clear navigation
 
-- Create plans in `./plans/` directory
-- Use clear, actionable task breakdown
-- Include dependencies and prerequisites
-- Format as markdown with clear sections
-- **NEVER include timelines or schedules**
-- **NEVER generate cronograms or time estimates**
-- Focus on what needs to be done, not when
+### Maintenance
 
-### Plan Structure
+- Keep documentation up to date
+- Review and update regularly
+- Remove outdated information
+- Add new features to documentation
+- Solicit feedback from users
 
-- ## Objective
-- ## Tasks
-- ## Dependencies
-- ## Acceptance Criteria
-- ## Notes
+## Performance Quality
 
-### File Naming
+### Efficiency Standards
 
-- Format: `./plans/YYYY-MM-DD-plan-name.md`
+- Optimize for performance when possible
+- Avoid unnecessary operations
+- Use appropriate data structures
+- Monitor resource usage
+- Profile critical paths
 
-## Git Quality
+### Scalability Considerations
 
-### Commit Quality
+- Design for growth
+- Consider multi-repository scenarios
+- Plan for increased usage
+- Optimize for large codebases
+- Handle edge cases gracefully
 
-- Use conventional commit format
-- Include meaningful descriptions
-- Reference Linear issues when applicable
-- Keep commits focused and atomic
-- Test changes before committing
+## Security Quality
 
-### Branch Quality
+### Data Protection
 
-- Use descriptive branch names
-- Keep branches focused on single features
-- Delete merged branches
-- Create from main/master branch
+- Never commit sensitive information
+- Use environment variables for secrets
+- Validate all inputs
+- Sanitize user data
+- Follow security best practices
 
-### PR Quality
+### Access Control
 
-- Use descriptive PR titles
-- Include comprehensive descriptions
-- Reference Linear issues
-- Request appropriate reviewers
-- Ensure all checks pass
+- Implement proper authentication
+- Use least privilege principle
+- Audit access patterns
+- Monitor for suspicious activity
+- Regular security reviews
+
+## Integration Quality
+
+### API Design
+
+- Use consistent naming conventions
+- Provide clear error messages
+- Include proper status codes
+- Document all endpoints
+- Version APIs appropriately
+
+### External Services
+
+- Handle service failures gracefully
+- Implement proper retry logic
+- Monitor external dependencies
+- Provide fallback mechanisms
+- Log integration issues
+
+## Monitoring and Observability
+
+### Logging Standards
+
+- Use appropriate log levels
+- Include relevant context
+- Avoid logging sensitive data
+- Structure logs for analysis
+- Implement log rotation
+
+### Metrics and Monitoring
+
+- Track key performance indicators
+- Monitor error rates
+- Set up alerts for critical issues
+- Regular health checks
+- Performance monitoring

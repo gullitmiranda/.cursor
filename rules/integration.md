@@ -2,78 +2,192 @@
 
 ## Linear Integration
 
-### Issue References
+### Issue Reference Format
 
-- Format: `ENG-123`, `PROJ-456`
-- Use in commit messages
-- Include in PR descriptions
+- Use format: `ENG-123`, `PROJ-456`
+- Include in commit messages when applicable
+- Reference in PR descriptions
 - Use magic words: "Closes", "Fixes", "Resolves"
+- Enable GitHub integration in Linear settings
 
-### Configuration
+### Auto-linking Configuration
 
-- Enable GitHub integration in Linear
-- Configure auto-link patterns
-- Test linking functionality
-- Monitor sync status
+- Configure auto-link patterns in Linear
+- Test linking functionality regularly
+- Monitor sync status between Linear and GitHub
+- Update patterns when project structure changes
+- Verify issue status updates
+
+### Workflow Integration
+
+- Link commits to Linear issues
+- Update issue status automatically
+- Include issue context in PRs
+- Track progress through Linear boards
+- Use Linear for project planning
 
 ## GitHub Integration
 
-### PR Templates
+### Pull Request Templates
 
 - Use `.github/pull_request_template.md`
-- Include required sections
-- Provide clear instructions
+- Include all required sections
+- Provide clear instructions for contributors
 - Remove unused placeholders
+- Update template when project evolves
 
 ### Code Ownership
 
-- Define code ownership rules
-- Include all critical paths
-- Update when structure changes
-- Test reviewer assignment
+- Define code ownership rules in `.github/CODEOWNERS`
+- Include all critical paths and directories
+- Update when project structure changes
+- Test reviewer assignment functionality
+- Ensure coverage of all important areas
 
-### Labeling
+### Labeling Strategy
 
-- Use consistent labeling
-- Apply change-type labels
+- Use consistent labeling system
+- Apply change-type labels (feat, fix, chore, docs)
 - Set appropriate milestones
 - Use priority labels when needed
+- Maintain label documentation
 
-## MCP Integration
+### Review Process
 
-### MCP Servers
+- Require appropriate number of reviewers
+- Assign reviewers based on code ownership
+- Use team-based review assignments
+- Set review deadlines when appropriate
+- Monitor review completion
+
+## MCP (Model Context Protocol) Integration
+
+### Server Configuration
 
 - Configure MCP servers in `mcp.json`
-- Test server connections
-- Validate server responses
-- Monitor server health
+- Test server connections regularly
+- Monitor server performance
+- Update server configurations as needed
+- Document server purposes and usage
 
-### Available MCPs
+### Tool Integration
 
-- Linear MCP for issue management
-- GitHub MCP for repository operations
-- TARS Agent for engineering insights
-- GraphRAG for document analysis
+- Integrate with Linear MCP tools
+- Use GitHub MCP tools for repository operations
+- Leverage web search capabilities
+- Monitor tool usage and performance
+- Update tool configurations
 
-## Command Integration
+## External Service Integration
 
-### Git Commands
+### API Integration
 
-- Integrate with Linear issues
-- Auto-link to GitHub PRs
-- Validate conventional commits
-- Enforce branch protection
+- Use consistent error handling
+- Implement proper retry logic
+- Monitor API rate limits
+- Handle service failures gracefully
+- Log integration issues
 
-### PR Commands
+### Authentication
 
-- Auto-create Linear links
-- Validate PR requirements
-- Check reviewer assignments
-- Ensure proper labeling
+- Use secure authentication methods
+- Store credentials securely
+- Implement token refresh logic
+- Monitor authentication status
+- Handle authentication failures
 
-### Planning Commands
+### Data Synchronization
 
-- Link to Linear issues
-- Create GitHub issues when needed
-- Update project status
-- Track progress
+- Ensure data consistency across services
+- Handle sync conflicts appropriately
+- Monitor sync status
+- Implement conflict resolution
+- Regular sync validation
+
+## Workspace Integration
+
+### Multi-Repository Support
+
+- Handle multiple git repositories
+- Identify repository boundaries
+- Manage cross-repository dependencies
+- Provide clear repository context
+- Support repository-specific configurations
+
+### Environment Management
+
+- Support different environments (dev, staging, prod)
+- Use environment-specific configurations
+- Handle environment-specific secrets
+- Validate environment requirements
+- Monitor environment health
+
+### Tool Integration
+
+- Integrate with development tools
+- Support IDE extensions
+- Work with build systems
+- Integrate with CI/CD pipelines
+- Support debugging tools
+
+## Monitoring and Observability
+
+### Integration Monitoring
+
+- Monitor integration health
+- Track integration performance
+- Set up alerts for integration failures
+- Log integration events
+- Regular integration testing
+
+### Error Handling
+
+- Implement comprehensive error handling
+- Provide clear error messages
+- Log integration errors
+- Implement error recovery
+- Monitor error patterns
+
+### Performance Monitoring
+
+- Track integration response times
+- Monitor resource usage
+- Identify performance bottlenecks
+- Optimize slow integrations
+- Regular performance reviews
+
+## Security Integration
+
+### Secure Communication
+
+- Use HTTPS for all external communications
+- Implement proper certificate validation
+- Use secure authentication protocols
+- Monitor for security vulnerabilities
+- Regular security audits
+
+### Data Protection
+
+- Encrypt sensitive data in transit
+- Use secure storage for credentials
+- Implement access controls
+- Monitor data access patterns
+- Regular security reviews
+
+## Documentation and Maintenance
+
+### Integration Documentation
+
+- Document all integrations
+- Provide setup instructions
+- Include troubleshooting guides
+- Update documentation regularly
+- Maintain integration examples
+
+### Regular Maintenance
+
+- Review integration configurations
+- Update integration versions
+- Test integration functionality
+- Monitor integration performance
+- Plan integration improvements
