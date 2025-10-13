@@ -85,12 +85,12 @@ ln -s $PWD/.cursor ~/.cursor
 
 ### Git Commands
 
-| Command       | Description                               | Usage                      |
-| ------------- | ----------------------------------------- | -------------------------- |
-| `/commit`     | Smart git commit with conventional format | `/commit` or `/commit all` |
+| Command       | Description                                  | Usage                      |
+| ------------- | -------------------------------------------- | -------------------------- |
+| `/commit`     | Smart git commit with conventional format    | `/commit` or `/commit all` |
 | `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth` |
-| `/git-reset`  | Safe git reset with automatic backup     | `/git-reset --soft HEAD~1` |
-| `/git-status` | Multi-repository status check            | `/git-status`              |
+| `/git-reset`  | Safe git reset with automatic backup         | `/git-reset --soft HEAD~1` |
+| `/git-status` | Multi-repository status check                | `/git-status`              |
 
 ### Pull Request Commands
 
@@ -104,30 +104,30 @@ ln -s $PWD/.cursor ~/.cursor
 
 ### Kubernetes Commands
 
-| Command        | Description                             | Usage                         |
-| -------------- | --------------------------------------- | ----------------------------- |
-| `/k8s-check`   | Safe Kubernetes resource inspection     | `/k8s-check pods`             |
-| `/k8s-validate`| Kubernetes manifest validation          | `/k8s-validate deployment.yaml` |
-| `/k8s-diff`    | Kubernetes deployment diff preview      | `/k8s-diff deployment.yaml`  |
+| Command         | Description                         | Usage                           |
+| --------------- | ----------------------------------- | ------------------------------- |
+| `/k8s-check`    | Safe Kubernetes resource inspection | `/k8s-check pods`               |
+| `/k8s-validate` | Kubernetes manifest validation      | `/k8s-validate deployment.yaml` |
+| `/k8s-diff`     | Kubernetes deployment diff preview  | `/k8s-diff deployment.yaml`     |
 
 ### Planning Commands
 
-| Command        | Description                             | Usage                         |
-| -------------- | --------------------------------------- | ----------------------------- |
-| `/plan`        | Create project plan with task breakdown | `/plan "Add auth system"`     |
-| `/workspace-status` | Multi-repository workspace overview | `/workspace-status`           |
+| Command             | Description                             | Usage                     |
+| ------------------- | --------------------------------------- | ------------------------- |
+| `/plan`             | Create project plan with task breakdown | `/plan "Add auth system"` |
+| `/workspace-status` | Multi-repository workspace overview     | `/workspace-status`       |
 
 ## 🛡️ Safety Hooks
 
 This repository includes 5 safety hooks that automatically protect against dangerous operations:
 
-| Hook | Event | Protection |
-|------|-------|------------|
-| `block-dangerous-kubectl.sh` | `beforeShellExecution` | Blocks `kubectl delete` and `kubectl apply` |
-| `block-git-push-main.sh` | `beforeShellExecution` | Blocks direct pushes to main/master branches |
-| `block-git-reset-hard.sh` | `beforeShellExecution` | Blocks destructive `git reset --hard` |
-| `check-branch-protection.sh` | `afterFileEdit` | Warns about edits on main/master branches |
-| `suggest-safe-commands.sh` | `beforeSubmitPrompt` | Suggests safe alternatives for dangerous commands |
+| Hook                         | Event                  | Protection                                        |
+| ---------------------------- | ---------------------- | ------------------------------------------------- |
+| `block-dangerous-kubectl.sh` | `beforeShellExecution` | Blocks `kubectl delete` and `kubectl apply`       |
+| `block-git-push-main.sh`     | `beforeShellExecution` | Blocks direct pushes to main/master branches      |
+| `block-git-reset-hard.sh`    | `beforeShellExecution` | Blocks destructive `git reset --hard`             |
+| `check-branch-protection.sh` | `afterFileEdit`        | Warns about edits on main/master branches         |
+| `suggest-safe-commands.sh`   | `beforeSubmitPrompt`   | Suggests safe alternatives for dangerous commands |
 
 ## 📋 Development Rules
 
