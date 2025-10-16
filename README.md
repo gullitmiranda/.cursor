@@ -69,6 +69,8 @@ ln -s $PWD/.cursor ~/.cursor
 /git-branch feature/user-auth    # Create feature branch
 /git-status                      # Check repository status
 /commit                          # Smart commit with conventional format
+/commit --all                    # Stage and commit all changes
+/commit --main                   # Emergency fix to main branch
 /pr                              # Create pull request
 
 # Kubernetes operations
@@ -85,12 +87,12 @@ ln -s $PWD/.cursor ~/.cursor
 
 ### Git Commands
 
-| Command       | Description                                  | Usage                      |
-| ------------- | -------------------------------------------- | -------------------------- |
-| `/commit`     | Smart git commit with conventional format    | `/commit` or `/commit all` |
-| `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth` |
-| `/git-reset`  | Safe git reset with automatic backup         | `/git-reset --soft HEAD~1` |
-| `/git-status` | Multi-repository status check                | `/git-status`              |
+| Command       | Description                                  | Usage                                        |
+| ------------- | -------------------------------------------- | -------------------------------------------- |
+| `/commit`     | Smart git commit with conventional format    | `/commit`, `/commit --all`, `/commit --main` |
+| `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth`                   |
+| `/git-reset`  | Safe git reset with automatic backup         | `/git-reset --soft HEAD~1`                   |
+| `/git-status` | Multi-repository status check                | `/git-status`                                |
 
 ### Pull Request Commands
 

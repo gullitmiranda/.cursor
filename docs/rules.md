@@ -219,7 +219,8 @@ This document explains the rules and guidelines that govern the Cursor commands 
 **`/commit` Rules**
 
 - ✅ Only commit staged changes by default
-- ✅ Use `/commit all` for all changes
+- ✅ Use `/commit --all` for all changes
+- ✅ Use `/commit --main` for emergency fixes to main branch
 - ✅ Validate conventional commit format
 - ✅ Include Linear issue references
 

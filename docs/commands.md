@@ -28,11 +28,17 @@ This document provides detailed information about all available Cursor commands 
 **Usage**:
 
 ```bash
-# Commit staged changes only
+# Commit staged changes only (default)
 /commit
 
 # Stage and commit all changes
-/commit all
+/commit --all
+
+# Emergency fix directly to main branch
+/commit --main
+
+# Emergency fix with all changes to main branch
+/commit --main --all
 
 # With additional message details
 /commit "Add error handling for edge cases"
@@ -40,10 +46,11 @@ This document provides detailed information about all available Cursor commands 
 
 **Safety Checks**:
 
-- ✅ Never commits to main/master branch
-- ✅ Only commits staged changes by default
+- ✅ Never commits to main/master branch (unless using `--main` flag)
+- ✅ Only commits staged changes by default (unless using `--all` flag)
 - ✅ Validates conventional commit format
 - ✅ Creates backups before destructive operations
+- ⚠️ `--main` flag bypasses main/master protection - use only for emergency fixes
 
 **Examples**:
 
@@ -78,7 +85,7 @@ chore(deps): update dependencies to latest versions
    - Uses present tense, imperative mood
 
 4. **Execution**
-   - Commits only staged changes (unless `/commit all`)
+   - Commits only staged changes (unless `--all` flag is used)
    - Validates conventional format
    - Confirms successful commit
 
@@ -379,8 +386,8 @@ Commands look for quality check commands in:
 
 **Commit Issues**:
 
-- **"Cannot commit to main"**: Create feature branch first
-- **"No staged changes"**: Use `/commit all` or stage changes first
+- **"Cannot commit to main"**: Create feature branch first or use `/commit --main` for emergency fixes
+- **"No staged changes"**: Use `/commit --all` or stage changes first
 - **"Invalid commit format"**: Check conventional commit format
 
 **PR Issues**:
