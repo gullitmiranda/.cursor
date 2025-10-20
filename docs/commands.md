@@ -21,6 +21,7 @@ This document provides detailed information about all available Cursor commands 
 
 - Automatic commit type detection (feat, fix, chore, etc.)
 - Branch safety (prevents commits to main/master)
+- **Auto branch creation** when on main/master branch
 - Linear issue auto-linking
 - Staged changes validation
 - Conventional commit format enforcement
@@ -47,6 +48,7 @@ This document provides detailed information about all available Cursor commands 
 **Safety Checks**:
 
 - ✅ Never commits to main/master branch (unless using `--main` flag)
+- ✅ **Automatically creates feature branch** when on main/master
 - ✅ Only commits staged changes by default (unless using `--all` flag)
 - ✅ Validates conventional commit format
 - ✅ Creates backups before destructive operations
@@ -70,6 +72,7 @@ chore(deps): update dependencies to latest versions
 1. **Branch Safety Check**
 
    - Verifies not on main/master branch
+   - **If on main/master**: Automatically creates feature branch based on changes
    - Creates feature branch if needed
 
 2. **Change Analysis**

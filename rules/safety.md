@@ -15,6 +15,7 @@
 - Do not make commits without reviews unless explicitly requested
 - Always create feature branches for changes
 - Use `/git-branch` command for safe branch creation
+- `/commit` command automatically creates feature branch when on main/master
 - Verify branch before committing
 - Never commit unstaged changes without explicit request
 - Always validate conventional commit format

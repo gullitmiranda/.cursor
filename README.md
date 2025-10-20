@@ -33,6 +33,7 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 ├── backups/           # Backup of original rules
 ├── plans/             # Migration plans and documentation
 ├── .gitignore         # Git ignore rules for Cursor files
+├── CHANGELOG.md       # Recent changes and updates
 └── README.md          # This file
 ```
 
@@ -89,7 +90,7 @@ ln -s $PWD/.cursor ~/.cursor
 
 | Command       | Description                                  | Usage                                        |
 | ------------- | -------------------------------------------- | -------------------------------------------- |
-| `/commit`     | Smart git commit with conventional format    | `/commit`, `/commit --all`, `/commit --main` |
+| `/commit`     | Smart git commit with auto-branch creation   | `/commit`, `/commit --all`, `/commit --main` |
 | `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth`                   |
 | `/git-reset`  | Safe git reset with automatic backup         | `/git-reset --soft HEAD~1`                   |
 | `/git-status` | Multi-repository status check                | `/git-status`                                |
@@ -174,6 +175,7 @@ Create a `.cursor/rules.md` file in your project to add project-specific rules t
 - [Rules Documentation](docs/rules.md) - Rules and guidelines
 - [Hooks Documentation](docs/hooks.md) - Safety hooks and automation
 - [Examples](examples/) - Usage examples and templates
+- [Changelog](CHANGELOG.md) - Recent changes and updates
 - [Contributing](CONTRIBUTING.md) - How to contribute to this repository
 
 ## 🔧 Configuration Files
