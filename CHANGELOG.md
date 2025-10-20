@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `chore/<description>` for maintenance tasks
     - `docs/<description>` for documentation updates
 
+### Added
+
+- Shell safety rules enforcing zsh usage for terminal operations
+- Mandatory zsh shell verification in safety and workflow rules
+- Explicit prohibition of fish, bash, and other shells in favor of zsh
+
 ## [1.0.0] - 2024-12-19
 
 ### Added

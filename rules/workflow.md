@@ -6,7 +6,10 @@
 
 ## Integrated Terminal
 
-- Always use the default shell (zsh)
+- **MANDATORY**: Always use zsh as the terminal shell
+- **NEVER** use fish, bash, or any other shell - only zsh
+- Verify shell with `echo $SHELL` and `ps -p $$` if needed
+- Use zsh-compatible syntax for all commands
 - Prefer terminal commands over GUI operations when possible
 
 ## Temporary Files Management

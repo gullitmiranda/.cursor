@@ -28,6 +28,14 @@
 
 ## Command Safety
 
+### Shell Safety
+
+- **MANDATORY**: Always use zsh shell for terminal operations
+- **NEVER** use fish, bash, or any other shell
+- Verify shell with `echo $SHELL` before executing commands
+- Use zsh-compatible syntax for all terminal commands
+- If fish is detected, explicitly switch to zsh or report the issue
+
 ### Kubernetes Safety
 
 - Never execute `kubectl delete` or `kubectl apply`
