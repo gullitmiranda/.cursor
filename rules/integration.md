@@ -2,13 +2,30 @@
 
 ## Linear Integration
 
+### Team Configuration
+
+- **Default Team**: Self Driven Platform (ID: 94fb9928-3874-464a-9f3d-a354d3364f5c)
+- **Alternative Team**: Platform ICEBOX (ID: 7357e730-4a1a-4f1a-8e53-f42a5077dbbd) - available but not default
+- Use Self Driven Platform as the primary team for issue creation and management
+- Platform ICEBOX available for specific use cases when requested
+- Focus on Platform-related teams only
+
+### Available Platform Teams
+
+- **Self Driven Platform** (Ship icon) - Primary development team
+- **Platform ICEBOX** - Alternative team for specific use cases
+- Focus on Platform-related teams for development work
+- Other teams available but not prioritized for default operations
+
 ### Issue Reference Format
 
-- Use format: `ENG-123`, `PROJ-456`
+- Use format: `PLTFRM-123`, `ENG-456`, `PROJ-789`
+- **Default prefix**: PLTFRM (Self Driven Platform team)
 - Include in commit messages when applicable
 - Reference in PR descriptions
 - Use magic words: "Closes", "Fixes", "Resolves"
 - Enable GitHub integration in Linear settings
+- Examples: `Closes PLTFRM-123`, `Fixes PLTFRM-456`
 
 ### Auto-linking Configuration
 
@@ -25,6 +42,28 @@
 - Include issue context in PRs
 - Track progress through Linear boards
 - Use Linear for project planning
+
+### Default Team Operations
+
+- **Primary Team**: Self Driven Platform (94fb9928-3874-464a-9f3d-a354d3364f5c)
+- **Team Key**: PLTFRM (for issue references)
+- **Issue Prefix**: PLTFRM-123, PLTFRM-456
+- Always use Self Driven Platform unless another team is specifically requested
+- Platform ICEBOX available when specifically requested
+- When creating issues, default to Self Driven Platform team
+- When searching issues, prioritize Self Driven Platform team results
+- Use PLTFRM prefix in commit messages for auto-linking
+- Focus on Platform teams for development work
+
+### Platform Team Workflow
+
+- **Primary Development**: Self Driven Platform team for all new features and fixes
+- **ICEBOX Usage**: Platform ICEBOX for experimental or future features
+- **Issue Creation**: Default to Self Driven Platform unless ICEBOX specifically requested
+- **Team Selection**: When user mentions "platform", default to Self Driven Platform
+- **Branch Naming**: Use PLTFRM prefix for Self Driven Platform issues
+- **Commit Messages**: Include PLTFRM-XXX references for auto-linking
+- **PR Descriptions**: Reference PLTFRM issues in pull request descriptions
 
 ## GitHub Integration
 
