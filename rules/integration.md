@@ -28,6 +28,26 @@
 
 ## GitHub Integration
 
+### GitHub CLI Usage
+
+- **MANDATORY**: Always use GitHub CLI (`gh`) for viewing GitHub logs and repository information
+- Use `gh` commands instead of web interface for log access and repository operations
+- Prefer `gh` CLI over browser-based GitHub operations when possible
+- Use `gh log` for viewing commit logs and repository history
+- Use `gh pr view` for pull request information
+- Use `gh issue view` for issue details
+- Use `gh repo view` for repository information
+
+#### GitHub Actions
+
+- Use `gh run list` to view workflow runs
+- Use `gh run view <run-id>` to view specific workflow run details
+- Use `gh run logs <run-id>` to view workflow logs
+- Use `gh workflow list` to list available workflows
+- Use `gh workflow view <workflow-name>` to view workflow details
+- Use `gh run watch <run-id>` to watch a workflow run in real-time
+- Use `gh run rerun <run-id>` to rerun failed workflows
+
 ### Pull Request Templates
 
 - Use `.github/pull_request_template.md`
