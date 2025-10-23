@@ -6,104 +6,33 @@
 
 - **Default Team**: Self Driven Platform (ID: 94fb9928-3874-464a-9f3d-a354d3364f5c)
 - **Alternative Team**: Platform ICEBOX (ID: 7357e730-4a1a-4f1a-8e53-f42a5077dbbd) - available but not default
-- Use Self Driven Platform as the primary team for issue creation and management
-- Platform ICEBOX available for specific use cases when requested
 - Focus on Platform-related teams only
 
-### Available Platform Teams
+### Default Settings
 
-- **Self Driven Platform** (Ship icon) - Primary development team
-- **Platform ICEBOX** - Alternative team for specific use cases
-- Focus on Platform-related teams for development work
-- Other teams available but not prioritized for default operations
+- **Assignee**: me (current user)
+- **Status**: Todo
+- **Team**: Self Driven Platform (unless ICEBOX specifically requested)
+- **Issue Prefix**: PLTFRM-123, PLTFRM-456
+- **Priority**: Based on issue type and urgency
+- **Labels**: Auto-assign based on issue content and type
 
-### Issue Reference Format
+### Issue References and Links
 
-- Use format: `PLTFRM-123`, `ENG-456`, `PROJ-789`
-- **Default prefix**: PLTFRM (Self Driven Platform team)
-- Include in commit messages when applicable
-- Reference in PR descriptions
-- Use magic words: "Closes", "Fixes", "Resolves"
-- Enable GitHub integration in Linear settings
-- Examples: `Closes PLTFRM-123`, `Fixes PLTFRM-456`
-
-### Informative Link Generation
-
-- **Enhanced Format**: Generate informative markdown links instead of plain references
-- **Format**: `[PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)`
-- **Components**:
-  - Issue identifier (PLTFRM-123)
-  - Issue title (descriptive)
-  - Full Linear URL with slug
-- **Usage**: Use in PR descriptions, commit messages, and documentation
+- **Format**: `PLTFRM-123`, `ENG-456`, `PROJ-789`
+- **Magic Words**: "Closes", "Fixes", "Resolves"
+- **Enhanced Links**: `[PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)`
+- **Usage**: PR descriptions, commit messages, documentation
 - **Example**: `[PLTFRM-5470: feat(ci): add optimized GitHub workflows for Terraform CI/CD](https://linear.app/cloudwalk/issue/PLTFRM-5470/featci-add-optimized-github-workflows-for-terraform-cicd)`
-
-### Auto-linking Configuration
-
-- Configure auto-link patterns in Linear
-- Test linking functionality regularly
-- Monitor sync status between Linear and GitHub
-- Update patterns when project structure changes
-- Verify issue status updates
 
 ### Workflow Integration
 
 - Link commits to Linear issues
 - Update issue status automatically
 - Include issue context in PRs
-- Track progress through Linear boards
 - Use Linear for project planning
-
-### Default Team Operations
-
-- **Primary Team**: Self Driven Platform (94fb9928-3874-464a-9f3d-a354d3364f5c)
-- **Team Key**: PLTFRM (for issue references)
-- **Issue Prefix**: PLTFRM-123, PLTFRM-456
-- **Default Assignee**: me (current user)
-- **Default Status**: Todo
-- Always use Self Driven Platform unless another team is specifically requested
-- Platform ICEBOX available when specifically requested
-- When creating issues, default to Self Driven Platform team
-- When searching issues, prioritize Self Driven Platform team results
-- Use PLTFRM prefix in commit messages for auto-linking
-- Focus on Platform teams for development work
-
-### Platform Team Workflow
-
-- **Primary Development**: Self Driven Platform team for all new features and fixes
-- **ICEBOX Usage**: Platform ICEBOX for experimental or future features
-- **Issue Creation**: Default to Self Driven Platform unless ICEBOX specifically requested
-- **Team Selection**: When user mentions "platform", default to Self Driven Platform
-- **Branch Naming**: Use PLTFRM prefix for Self Driven Platform issues
-- **Commit Messages**: Include PLTFRM-XXX references for auto-linking
-- **PR Descriptions**: Reference PLTFRM issues in pull request descriptions
-
-### Default Issue Settings
-
-- **Assignee**: me (current user)
-- **Status**: Todo
-- **Team**: Self Driven Platform (unless ICEBOX specifically requested)
-- **Priority**: Based on issue type and urgency
-- **Labels**: Auto-assign based on issue content and type
-
-### PR and Issue Link Generation
-
-- **Enhanced References**: Generate informative markdown links for PRs and Issues
-- **Format**: `[ISSUE-ID: Issue Title](https://linear.app/cloudwalk/issue/ISSUE-ID/issue-slug)`
-- **Components**:
-  - Full issue identifier (PLTFRM-123)
-  - Descriptive issue title
-  - Complete Linear URL with slug
-- **Usage Context**:
-  - PR descriptions and comments
-  - Commit messages (when appropriate)
-  - Documentation and README files
-  - Issue cross-references
-- **Benefits**:
-  - Clickable links with context
-  - Better navigation and understanding
-  - Professional documentation appearance
-- **Example**: `[PLTFRM-5470: feat(ci): add optimized GitHub workflows for Terraform CI/CD](https://linear.app/cloudwalk/issue/PLTFRM-5470/featci-add-optimized-github-workflows-for-terraform-cicd)`
+- Configure auto-link patterns in Linear
+- Monitor sync status between Linear and GitHub
 
 ## GitHub Integration
 
@@ -112,52 +41,31 @@
 - **MANDATORY**: Always use GitHub CLI (`gh`) for viewing GitHub logs and repository information
 - Use `gh` commands instead of web interface for log access and repository operations
 - Prefer `gh` CLI over browser-based GitHub operations when possible
-- Use `gh log` for viewing commit logs and repository history
-- Use `gh pr view` for pull request information
-- Use `gh issue view` for issue details
-- Use `gh repo view` for repository information
+
+#### Core Commands
+
+- `gh log` - View commit logs and repository history
+- `gh pr view` - Pull request information
+- `gh issue view` - Issue details
+- `gh repo view` - Repository information
 
 #### GitHub Actions
 
-- Use `gh run list` to view workflow runs
-- Use `gh run view <run-id>` to view specific workflow run details
-- Use `gh run logs <run-id>` to view workflow logs
-- Use `gh workflow list` to list available workflows
-- Use `gh workflow view <workflow-name>` to view workflow details
-- Use `gh run watch <run-id>` to watch a workflow run in real-time
-- Use `gh run rerun <run-id>` to rerun failed workflows
+- `gh run list` - View workflow runs
+- `gh run view <run-id>` - View specific workflow run details
+- `gh run logs <run-id>` - View workflow logs
+- `gh workflow list` - List available workflows
+- `gh workflow view <workflow-name>` - View workflow details
+- `gh run watch <run-id>` - Watch a workflow run in real-time
+- `gh run rerun <run-id>` - Rerun failed workflows
 
-### Pull Request Templates
+### Pull Request Management
 
 - Use `.github/pull_request_template.md`
-- Include all required sections
-- Provide clear instructions for contributors
-- Remove unused placeholders
-- Update template when project evolves
-
-### Code Ownership
-
 - Define code ownership rules in `.github/CODEOWNERS`
-- Include all critical paths and directories
-- Update when project structure changes
-- Test reviewer assignment functionality
-- Ensure coverage of all important areas
-
-### Labeling Strategy
-
-- Use consistent labeling system
-- Apply change-type labels (feat, fix, chore, docs)
-- Set appropriate milestones
-- Use priority labels when needed
-- Maintain label documentation
-
-### Review Process
-
+- Use consistent labeling system (feat, fix, chore, docs)
 - Require appropriate number of reviewers
 - Assign reviewers based on code ownership
-- Use team-based review assignments
-- Set review deadlines when appropriate
-- Monitor review completion
 
 ## MCP (Model Context Protocol) Integration
 
@@ -166,7 +74,6 @@
 - Configure MCP servers in `mcp.json`
 - Test server connections regularly
 - Monitor server performance
-- Update server configurations as needed
 - Document server purposes and usage
 
 ### Tool Integration
@@ -175,7 +82,6 @@
 - Use GitHub MCP tools for repository operations
 - Leverage web search capabilities
 - Monitor tool usage and performance
-- Update tool configurations
 
 ## External Service Integration
 
@@ -220,14 +126,6 @@
 - Handle environment-specific secrets
 - Validate environment requirements
 - Monitor environment health
-
-### Tool Integration
-
-- Integrate with development tools
-- Support IDE extensions
-- Work with build systems
-- Integrate with CI/CD pipelines
-- Support debugging tools
 
 ## Monitoring and Observability
 
