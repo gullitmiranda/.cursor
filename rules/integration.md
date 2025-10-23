@@ -27,6 +27,17 @@
 - Enable GitHub integration in Linear settings
 - Examples: `Closes PLTFRM-123`, `Fixes PLTFRM-456`
 
+### Informative Link Generation
+
+- **Enhanced Format**: Generate informative markdown links instead of plain references
+- **Format**: `[PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)`
+- **Components**:
+  - Issue identifier (PLTFRM-123)
+  - Issue title (descriptive)
+  - Full Linear URL with slug
+- **Usage**: Use in PR descriptions, commit messages, and documentation
+- **Example**: `[PLTFRM-5470: feat(ci): add optimized GitHub workflows for Terraform CI/CD](https://linear.app/cloudwalk/issue/PLTFRM-5470/featci-add-optimized-github-workflows-for-terraform-cicd)`
+
 ### Auto-linking Configuration
 
 - Configure auto-link patterns in Linear
@@ -48,6 +59,8 @@
 - **Primary Team**: Self Driven Platform (94fb9928-3874-464a-9f3d-a354d3364f5c)
 - **Team Key**: PLTFRM (for issue references)
 - **Issue Prefix**: PLTFRM-123, PLTFRM-456
+- **Default Assignee**: me (current user)
+- **Default Status**: Todo
 - Always use Self Driven Platform unless another team is specifically requested
 - Platform ICEBOX available when specifically requested
 - When creating issues, default to Self Driven Platform team
@@ -64,6 +77,33 @@
 - **Branch Naming**: Use PLTFRM prefix for Self Driven Platform issues
 - **Commit Messages**: Include PLTFRM-XXX references for auto-linking
 - **PR Descriptions**: Reference PLTFRM issues in pull request descriptions
+
+### Default Issue Settings
+
+- **Assignee**: me (current user)
+- **Status**: Todo
+- **Team**: Self Driven Platform (unless ICEBOX specifically requested)
+- **Priority**: Based on issue type and urgency
+- **Labels**: Auto-assign based on issue content and type
+
+### PR and Issue Link Generation
+
+- **Enhanced References**: Generate informative markdown links for PRs and Issues
+- **Format**: `[ISSUE-ID: Issue Title](https://linear.app/cloudwalk/issue/ISSUE-ID/issue-slug)`
+- **Components**:
+  - Full issue identifier (PLTFRM-123)
+  - Descriptive issue title
+  - Complete Linear URL with slug
+- **Usage Context**:
+  - PR descriptions and comments
+  - Commit messages (when appropriate)
+  - Documentation and README files
+  - Issue cross-references
+- **Benefits**:
+  - Clickable links with context
+  - Better navigation and understanding
+  - Professional documentation appearance
+- **Example**: `[PLTFRM-5470: feat(ci): add optimized GitHub workflows for Terraform CI/CD](https://linear.app/cloudwalk/issue/PLTFRM-5470/featci-add-optimized-github-workflows-for-terraform-cicd)`
 
 ## GitHub Integration
 
