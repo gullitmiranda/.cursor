@@ -24,7 +24,7 @@ Reference: Linear GitHub Integration - https://linear.app/docs/github#enable-aut
 1. **Pre-flight Checks**:
 
    - Verify we're on a feature branch (not main/master)
-   - Check that branch has commits ahead of base branch
+   - Check that branch has commits ahead of base branch, if not use the `/commit` command to commit the changes
    - Ensure branch is pushed to remote repository
    - Confirm GitHub CLI is authenticated
 
