@@ -2,7 +2,13 @@
 
 ## Language
 
-- By default always write documentation, comments and code in English
+- By default always write documentation, comments, code, commit messages, and pull request titles/descriptions in English
+- Use English for all technical communication including:
+  - Code comments and documentation
+  - Commit messages and commit descriptions
+  - Pull request titles and descriptions
+  - Technical documentation and README files
+  - API documentation and code examples
 
 ## Integrated Terminal
 

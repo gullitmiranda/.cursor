@@ -7,6 +7,7 @@
 - Use conventional commit format: `<type>(<scope>): <description>`
 - Types: feat, fix, chore, docs, style, refactor, test
 - Present tense, imperative mood
+- **Always write commit messages in English**
 - Include Linear issue references when applicable
 - Keep descriptions concise but descriptive
 
@@ -44,6 +45,14 @@
 - Documentation updated
 - Tests cover new functionality
 - Performance impact assessed
+
+### Pull Request Standards
+
+- **Always write PR titles and descriptions in English**
+- Use descriptive and clear PR titles
+- Include comprehensive descriptions with context
+- Reference Linear issues when applicable
+- Follow conventional commit format for PR titles
 
 ### Testing Requirements
 
