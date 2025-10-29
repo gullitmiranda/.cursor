@@ -2,11 +2,11 @@
 
 ## Description
 
-Create or update project plan in ./plans/ directory with structured task breakdown.
+Create or update project plan in .cursor/plans/ directory with structured task breakdown.
 
 ## Workflow
 
-1. Always create or update plan file based on proposed plan inside ./plans/ folder
+1. Always create or update plan file based on proposed plan inside .cursor/plans/ folder
 2. Use clear, actionable task breakdown
 3. Don't add time estimation unless explicitly requested
 4. Format as markdown with clear sections and checkboxes
@@ -23,7 +23,7 @@ Create or update project plan in ./plans/ directory with structured task breakdo
 
 ## File Naming
 
-`./plans/YYYY-MM-DD-plan-name.md`
+`.cursor/plans/YYYY-MM-DD-plan-name.md`
 
 ## Examples
 

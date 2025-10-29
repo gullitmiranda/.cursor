@@ -359,7 +359,7 @@ This document explains the rules and guidelines that govern the Cursor commands 
 
 **Plan Creation Guidelines**
 
-- ✅ Create plans in `./plans/` directory
+- ✅ Create plans in `.cursor/plans/` directory
 - ✅ Use clear, actionable task breakdown
 - ✅ Include dependencies and prerequisites
 - ✅ Format as markdown with clear sections
@@ -377,7 +377,7 @@ This document explains the rules and guidelines that govern the Cursor commands 
 - ## Acceptance Criteria
 - ## Notes
 
-**File Naming**: `./plans/YYYY-MM-DD-plan-name.md`
+**File Naming**: `.cursor/plans/YYYY-MM-DD-plan-name.md`
 
 ### Documentation Standards
 

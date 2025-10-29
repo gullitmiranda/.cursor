@@ -2,11 +2,11 @@
 
 ## /plan
 
-**Description**: Create or update project plan in ./plans/ directory
+**Description**: Create or update project plan in .cursor/plans/ directory
 
 **Workflow**:
 
-1. Always create or update plan file based on proposed plan inside ./plans/ folder
+1. Always create or update plan file based on proposed plan inside .cursor/plans/ folder
 2. Use clear, actionable task breakdown
 3. Don't add time estimation unless explicitly requested
 4. Format as markdown with clear sections and checkboxes
@@ -21,7 +21,7 @@
 - ## Acceptance Criteria
 - ## Notes
 
-**File naming**: `./plans/YYYY-MM-DD-plan-name.md`
+**File naming**: `.cursor/plans/YYYY-MM-DD-plan-name.md`
 
 ---
 

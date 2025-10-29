@@ -78,7 +78,7 @@
 
 ### Global Commands
 
-- `/plan` - Create or update project plan in ./plans/
+- `/plan` - Create or update project plan in .cursor/plans/
 - `/workspace-status` - Multi-repository workspace status overview
 
 ## Security & Safety Hooks
@@ -100,7 +100,7 @@
 
 When building plans:
 
-- Always create or update plan file in `./plans/` folder
+- Always create or update plan file in `.cursor/plans/` folder
 - Use clear, actionable task breakdown
 - Don't add time estimation unless requested
 - Format as markdown with clear sections

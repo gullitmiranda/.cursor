@@ -65,7 +65,7 @@
 
 ### Plan Creation Guidelines
 
-- Create plans in `./plans/` directory
+- Create plans in `.cursor/plans/` directory
 - Use clear, actionable task breakdown
 - Include dependencies and prerequisites
 - Format as markdown with clear sections
@@ -83,7 +83,7 @@
 
 ### File Naming
 
-- Format: `./plans/YYYY-MM-DD-plan-name.md`
+- Format: `.cursor/plans/YYYY-MM-DD-plan-name.md`
 
 ## Documentation Standards
 
