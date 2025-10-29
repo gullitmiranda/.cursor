@@ -31,10 +31,18 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 ├── docs/              # Detailed documentation
 ├── examples/          # Usage examples and templates
 ├── backups/           # Backup of original rules
-├── plans/             # Migration plans and documentation
+├── .cursor/plans/     # Migration plans and documentation
 ├── .gitignore         # Git ignore rules for Cursor files
 ├── CHANGELOG.md       # Recent changes and updates
 └── README.md          # This file
+```
+
+> NOTE: The .cursor/rules folder is not loaded automatically by Cursor.
+
+To load the .cursor/rules, you need to manually add it to the Cursor settings.
+
+```
+Cursor Settings -> Rules & Memories -> User Rules -> Click on "+ Add Rule"
 ```
 
 ## 🚀 Quick Start
