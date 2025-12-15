@@ -67,6 +67,23 @@
 - Require appropriate number of reviewers
 - Assign reviewers based on code ownership
 
+## Trunk Integration
+
+### Tool Configuration
+
+- Prefer configuring tools and linters using their standard configuration files in default paths (e.g., `.eslintrc`, `pyproject.toml`, `.prettierrc`) instead of configuring exclusively in `.trunk/`
+- Keep `.trunk/trunk.yaml` minimal - use it only for Trunk-specific settings like enabled linters and actions
+- This ensures tools work consistently whether run via Trunk or directly
+
+### Ignore Configuration
+
+- Prefer using each tool's native ignore mechanism (inline comments or ignore files) instead of Trunk's ignore system
+- Examples:
+  - ESLint: `// eslint-disable-next-line` or `.eslintignore`
+  - Prettier: `// prettier-ignore` or `.prettierignore`
+  - Ruff: `# noqa` or `pyproject.toml` exclude patterns
+- This maintains compatibility when tools are run outside of Trunk
+
 ## MCP (Model Context Protocol) Integration
 
 ### Server Configuration
