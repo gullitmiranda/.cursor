@@ -72,3 +72,5 @@ blocklist
 plans/
 *.plan
 *.migration
+/projects/
+/ai-tracking/
