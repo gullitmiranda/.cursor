@@ -4,12 +4,13 @@ This document provides detailed information about all available Cursor commands 
 
 ## 📋 Command Overview
 
-| Command     | Category | Description                               | Complexity |
-| ----------- | -------- | ----------------------------------------- | ---------- |
-| `/commit`   | Git      | Smart git commit with conventional format | Medium     |
-| `/pr`       | GitHub   | Create pull request with quality checks   | High       |
-| `/pr check` | GitHub   | Validate PR quality and completeness      | Medium     |
-| `/pr ready` | GitHub   | Mark PR ready for review                  | Low        |
+| Command         | Category | Description                                  | Complexity |
+| --------------- | -------- | -------------------------------------------- | ---------- |
+| `/commit`       | Git      | Smart git commit with conventional format    | Medium     |
+| `/pr`           | GitHub   | Create pull request with quality checks      | High       |
+| `/pr check`     | GitHub   | Validate PR quality and completeness         | Medium     |
+| `/pr ready`     | GitHub   | Mark PR ready for review                     | Low        |
+| `/linear-issue` | Linear   | Create, list, view, and update Linear issues | Medium     |
 
 ## 🔧 Git Commands
 
@@ -315,6 +316,125 @@ Commands look for quality check commands in:
 - **Rollback Options**: Safe ways to undo changes
 - **Validation Feedback**: Detailed validation reports
 
+## 📋 Linear Issue Commands
+
+### `/linear-issue` - Linear Issue Management
+
+**Purpose**: Manages Linear issues throughout their lifecycle: creation, listing, viewing, updating, and commenting.
+
+**Features**:
+
+- Create issues with automatic defaults (PLTFRM team, assignee "me", status "Todo")
+- List issues with advanced filtering
+- View detailed issue information
+- Update issue fields (status, priority, assignee, labels, etc.)
+- Add comments to issues
+- Auto-detect issue type from title/description
+- Generate proper Linear URLs for references
+
+**Usage**:
+
+```bash
+# Create basic issue
+/linear-issue "feat(auth): add JWT token validation"
+
+# Create issue with description
+/linear-issue "fix(api): resolve timeout" "The API times out after 30s. Need retry logic."
+
+# List my issues
+/linear-issue list
+
+# View issue details
+/linear-issue view PLTFRM-123
+
+# Update issue status
+/linear-issue update PLTFRM-123 --status "In Progress"
+
+# Add comment
+/linear-issue comment PLTFRM-123 "Ready for review"
+```
+
+**Default Settings**:
+
+- **Team**: Self Driven Platform (PLTFRM) - default
+- **Alternative Team**: Platform ICEBOX (PLAI) - only if explicitly requested
+- **Assignee**: me (current user)
+- **Status**: Todo
+- **Priority**: Auto-detected based on issue type
+- **Labels**: Auto-assigned based on content analysis
+
+**Subcommands**:
+
+1. **Create**: `/linear-issue "title"` or `/linear-issue create "title"`
+2. **List**: `/linear-issue list [--filters]`
+3. **View**: `/linear-issue view PLTFRM-123` or `/linear-issue get PLTFRM-123`
+4. **Update**: `/linear-issue update PLTFRM-123 [--fields]`
+5. **Status**: `/linear-issue status PLTFRM-123 "In Progress"`
+6. **Comment**: `/linear-issue comment PLTFRM-123 "Comment text"`
+
+**Issue Reference Format**:
+
+- **Format**: `PLTFRM-123`, `ENG-456`, `PROJ-789`
+- **Enhanced Links**: `[PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)`
+- **Usage**: PR descriptions, commit messages, documentation
+- **Magic Words**: "Closes", "Fixes", "Resolves" for auto-linking in GitHub
+
+**Workflow**:
+
+1. **Create Issue**
+
+   - Parse title and optional description
+   - Apply default settings (team, assignee, status)
+   - Auto-detect issue type and labels
+   - Create issue via Linear MCP
+   - Return issue URL and reference format
+
+2. **List Issues**
+
+   - Apply filters (assignee, team, status, label, query)
+   - Retrieve issues via Linear MCP
+   - Format as table with key information
+   - Include Linear URLs
+
+3. **View Issue**
+
+   - Parse issue ID (supports PLTFRM-123 or 123 format)
+   - Retrieve full issue details
+   - Display description, status, assignee, comments
+   - Show git branch name if available
+
+4. **Update Issue**
+
+   - Parse issue ID and update fields
+   - Merge updates with existing data
+   - Update via Linear MCP
+   - Confirm changes
+
+5. **Add Comment**
+   - Parse issue ID and comment body
+   - Support Markdown formatting
+   - Support reply to existing comments
+   - Create comment via Linear MCP
+
+**Examples**:
+
+```bash
+# Create issue with all options
+/linear-issue "feat(platform): add new feature" \
+  --priority 2 \
+  --labels "feature,backend" \
+  --project "Q1 2024"
+
+# List issues with filters
+/linear-issue list --state "In Progress" --label "bug"
+
+# Update multiple fields
+/linear-issue update PLTFRM-123 \
+  --status "Done" \
+  --priority 0 \
+  --labels "completed,verified"
+```
+
 ## 🔗 Integration Features
 
 ### Linear Integration
@@ -323,6 +443,7 @@ Commands look for quality check commands in:
 - **Issue References**: Includes issue IDs in commits
 - **Magic Words**: Uses "Closes", "Fixes", "Resolves"
 - **GitHub Sync**: Syncs with GitHub for PR visibility
+- **Issue Management**: Create, list, view, and update issues via `/linear-issue` command
 
 ### GitHub Integration
 
