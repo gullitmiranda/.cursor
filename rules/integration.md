@@ -4,9 +4,10 @@
 
 ### Team Configuration
 
-- **Default Team**: Self Driven Platform (ID: 94fb9928-3874-464a-9f3d-a354d3364f5c)
-- **Alternative Team**: Platform ICEBOX (ID: 7357e730-4a1a-4f1a-8e53-f42a5077dbbd) - available but not default
-- Focus on Platform-related teams only
+- **Default Team**: Self Driven Platform (Identifier: PLTFRM, ID: 94fb9928-3874-464a-9f3d-a354d3364f5c)
+- **Alternative Team**: Platform ICEBOX (Identifier: PLAI, ID: 7357e730-4a1a-4f1a-8e53-f42a5077dbbd) - available but not default
+
+> IMPORTANT: Always use PLTFRM as the issue team, unless explicitly requested otherwise
 
 ### Default Settings
 
