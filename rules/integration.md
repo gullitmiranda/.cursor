@@ -2,38 +2,13 @@
 
 ## Linear Integration
 
-### Team Configuration
+See dedicated rules file: [`rules/linear.md`](linear.md)
 
-- **Default Team**: Self Driven Platform (Identifier: PLTFRM, ID: 94fb9928-3874-464a-9f3d-a354d3364f5c)
-- **Alternative Team**: Platform ICEBOX (Identifier: PLAI, ID: 7357e730-4a1a-4f1a-8e53-f42a5077dbbd) - available but not default
-
-> IMPORTANT: Always use PLTFRM as the issue team, unless explicitly requested otherwise
-
-### Default Settings
-
-- **Assignee**: me (current user)
-- **Status**: Todo
-- **Team**: Self Driven Platform (unless ICEBOX specifically requested)
-- **Issue Prefix**: PLTFRM-123, PLTFRM-456
-- **Priority**: Based on issue type and urgency
-- **Labels**: Auto-assign based on issue content and type
-
-### Issue References and Links
-
-- **Format**: `PLTFRM-123`, `ENG-456`, `PROJ-789`
-- **Magic Words**: "Closes", "Fixes", "Resolves"
-- **Enhanced Links**: `[PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)`
-- **Usage**: PR descriptions, commit messages, documentation
-- **Example**: `[PLTFRM-5470: feat(ci): add optimized GitHub workflows for Terraform CI/CD](https://linear.app/cloudwalk/issue/PLTFRM-5470/featci-add-optimized-github-workflows-for-terraform-cicd)`
-
-### Workflow Integration
-
-- Link commits to Linear issues
-- Update issue status automatically
-- Include issue context in PRs
-- Use Linear for project planning
-- Configure auto-link patterns in Linear
-- Monitor sync status between Linear and GitHub
+Quick reference:
+- **CLI Tool**: Linearis (`linearis` command)
+- **Default Team**: Self Driven Platform (PLTFRM)
+- **Default Status**: Backlog
+- **Issue URLs**: Always use full markdown format
 
 ## GitHub Integration
 
@@ -96,7 +71,7 @@
 
 ### Tool Integration
 
-- Integrate with Linear MCP tools
+- **Linear**: Use Linearis CLI as primary tool; MCP only as fallback for unsupported operations
 - Use GitHub MCP tools for repository operations
 - Leverage web search capabilities
 - Monitor tool usage and performance

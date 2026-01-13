@@ -261,11 +261,32 @@ fi
 
 ## Linear GitHub Integration
 
+### Issue Reference Format
+
+**IMPORTANT**: Always use full markdown URL format for Linear issue references:
+
+```markdown
+# Correct - Full markdown URL (preferred)
+Closes [PLTFRM-123: Issue Title](https://linear.app/cloudwalk/issue/PLTFRM-123/issue-slug)
+
+# Avoid - Just the ID (less informative)
+Closes PLTFRM-123
+```
+
+### Fetching Issue Details
+
+When a Linear issue ID is detected in commits, fetch the issue details using Linearis CLI:
+
+```bash
+linearis issues read PLTFRM-123
+```
+
+Use the response to build the full markdown URL with title.
+
 ### Auto-linking Setup
 
-- Include Linear issue IDs (e.g., `ENG-123`, `PROJ-456`) in commit messages
-- Use magic words like "Closes", "Fixes", "Resolves" followed by issue ID
-- Linear will auto-link commits to issues when GitHub integration is enabled
+- Use magic words like "Closes", "Fixes", "Resolves" followed by the full markdown link
+- Linear will auto-link and close issues when GitHub integration is enabled
 
 ### Commit Message Format
 
@@ -276,7 +297,7 @@ feat(auth): add JWT token validation middleware
 - Add error handling for expired tokens
 - Update authentication flow documentation
 
-Closes ENG-123
+Closes [PLTFRM-123: Add JWT validation](https://linear.app/cloudwalk/issue/PLTFRM-123/add-jwt-validation)
 ```
 
 ### PR Description Format
@@ -284,7 +305,7 @@ Closes ENG-123
 ```markdown
 ## Related Issues
 
-Closes #ENG-123
+Closes [PLTFRM-123: Add JWT validation](https://linear.app/cloudwalk/issue/PLTFRM-123/add-jwt-validation)
 
 ## Summary
 
