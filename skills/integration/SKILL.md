@@ -6,7 +6,7 @@ description: Linear, GitHub, Trunk, MCP, and external service integration rules.
 
 ## Linear Integration
 
-See dedicated rules file: [`rules/linear.md`](linear.md)
+See the **linear** skill for full Linear rules and CLI commands (skills/linear/).
 
 Quick reference:
 - **CLI Tool**: Linearis (`linearis` command)
