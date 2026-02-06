@@ -1,59 +1,16 @@
 ---
 name: plan
-description: Create or update project plans in .cursor/plans/ with structured task breakdown. Use when creating a new plan, updating an existing plan, or organizing work into actionable tasks.
+description: Create or update project plans. Use when the user asks to create a plan, update a plan, or break down work into a plan (in or out of plan mode). Always use standard plan format and location so plans are consistent.
 disable-model-invocation: true
 ---
-# Plan Command
+# Plan
 
-## Description
+When creating or updating plans (in plan mode or in normal chat):
 
-Create or update project plan in .cursor/plans/ directory with structured task breakdown.
+1. **Location**: Save plan files in `.cursor/plans/`. Do not create plan files in the workspace root or ad-hoc locations.
+2. **Format**: Use the standard plan format (`.plan.md` extension) and the same structure Cursor uses for native plans (e.g. tasks in the expected plan format), so plans are consistent whether generated in plan mode or not.
+3. **Structure**: Objective, Tasks, Dependencies, Acceptance Criteria, Notes (markdown with clear sections). Match the task/todo format of `.plan.md` plans.
+4. **Content**: Clear, actionable task breakdown; include dependencies and prerequisites.
+5. **Never**: Add timelines, schedules, cronograms, or time estimates (unless the user explicitly asks for them).
 
-## Workflow
-
-1. Always create or update plan file based on proposed plan inside .cursor/plans/ folder
-2. Use clear, actionable task breakdown
-3. Don't add time estimation unless explicitly requested
-4. Format as markdown with clear sections and checkboxes
-5. Include dependencies and prerequisites
-6. Maintain plan history and versioning
-
-## Plan Structure
-
-- ## Objective
-- ## Tasks
-- ## Dependencies
-- ## Acceptance Criteria
-- ## Notes
-
-## File Naming
-
-`.cursor/plans/YYYY-MM-DD-plan-name.md`
-
-## Examples
-
-```bash
-# Create new plan
-/plan "Implement user authentication system"
-
-# Update existing plan
-/plan "Add OAuth integration to auth system"
-
-# Create plan with specific date
-/plan "2024-12-20-database-migration"
-```
-
-## Features
-
-- Automatic date formatting
-- Structured markdown output
-- Task dependency tracking
-- Progress monitoring
-- Version control integration
-
-## Integration
-
-- Works with Linear issues
-- Integrates with PR workflow
-- Supports multi-repository projects
-- Compatible with documentation system
+If the user has not specified a filename, use a descriptive name with `.plan.md` extension (e.g. `my-feature.plan.md`). For full structure details, see the **workflow** skill (Planning Workflow section).

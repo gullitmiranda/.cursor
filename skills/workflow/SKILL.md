@@ -81,9 +81,10 @@ description: Language, terminal, workspace, branch, commit, PR, planning, and do
 - ## Acceptance Criteria
 - ## Notes
 
-### File Naming
+### Plan Files
 
-- Format: `.cursor/plans/YYYY-MM-DD-plan-name.md`
+- Save in `.cursor/plans/` with `.plan.md` extension so plans match the standard format (e.g. `descriptive-name.plan.md`).
+- Use the same task/todo structure as native Cursor plans so plans stay consistent whether created in plan mode or in chat.
 
 ## Documentation Standards
 
