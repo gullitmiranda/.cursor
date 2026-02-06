@@ -2,6 +2,8 @@
 
 This document provides detailed information about all available Cursor commands in this repository.
 
+> **Note:** Command behavior is now implemented as **Agent Skills** in `.cursor/skills/` (git, k8s, linear, pr, plan, workspace-status). Cursor uses those skills when you invoke the corresponding workflows. This doc remains as reference.
+
 ## 📋 Command Overview
 
 | Command         | Category | Description                                  | Complexity |

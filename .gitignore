@@ -59,6 +59,7 @@ target/
 # -------------------------------
 /extensions/
 /interpreter-notebooks/
+/skills-cursor/
 argv.json
 ide_state.json
 cli-config.json

@@ -6,44 +6,29 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 
 ```
 .cursor/
-├── commands/           # Custom Cursor commands (10 commands)
-│   ├── commit.md      # Git commit automation
-│   ├── git-branch.md  # Safe branch creation
-│   ├── git-reset.md   # Safe git reset with backup
-│   ├── git-status.md  # Multi-repository status check
-│   ├── k8s-check.md   # Safe Kubernetes resource inspection
-│   ├── k8s-diff.md    # Kubernetes deployment diff preview
-│   ├── k8s-validate.md # Kubernetes manifest validation
-│   ├── plan.md        # Project planning and task breakdown
-│   ├── pr.md          # Pull request management (consolidated)
-│   └── workspace-status.md # Multi-repository workspace overview
-├── hooks/             # Safety hooks (5 hooks)
-│   ├── block-dangerous-kubectl.sh    # Block dangerous kubectl commands
-│   ├── block-git-push-main.sh        # Block direct pushes to main/master
-│   ├── block-git-reset-hard.sh       # Block destructive git reset
-│   ├── check-branch-protection.sh    # Warn about edits on main/master
-│   └── suggest-safe-commands.sh      # Suggest safe command alternatives
-├── rules/             # Development rules (4 rule files)
-│   ├── safety.md      # Safety rules and protections
-│   ├── quality.md     # Code quality standards
-│   ├── workflow.md    # Development workflow rules
-│   └── integration.md # Linear/GitHub/MCP integration rules
-├── docs/              # Detailed documentation
-├── examples/          # Usage examples and templates
-├── backups/           # Backup of original rules
-├── .cursor/plans/     # Migration plans and documentation
-├── .gitignore         # Git ignore rules for Cursor files
-├── CHANGELOG.md       # Recent changes and updates
-└── README.md          # This file
+├── skills/            # Agent Skills (what Cursor loads - migrated from rules + commands)
+│   ├── safety/       # Git, command, k8s, data, workspace safety
+│   ├── workflow/     # Language, branch, commit, PR, planning workflow
+│   ├── integration/  # Linear, GitHub, Trunk, MCP integration
+│   ├── quality/      # Code quality, gates, docs, character hygiene
+│   ├── linear/       # Linear rules + all Linear CLI commands (create, update, list, etc.)
+│   ├── git/          # commit, git-branch, git-reset, git-status
+│   ├── k8s/          # k8s-check, k8s-validate, k8s-diff
+│   ├── pr/           # Pull request create, check, ready
+│   ├── plan/         # Project plan creation
+│   └── workspace-status/
+├── commands/         # Source for slash-command behavior (content migrated into skills)
+├── rules/            # Source for rule content (content migrated into skills)
+├── hooks/            # Safety hooks (5 hooks)
+├── docs/             # Detailed documentation
+├── examples/         # Usage examples and templates
+├── plans/            # Migration and project plans
+├── .gitignore
+├── CHANGELOG.md
+└── README.md
 ```
 
-> NOTE: The .cursor/rules folder is not loaded automatically by Cursor.
-
-To load the .cursor/rules, you need to manually add it to the Cursor settings.
-
-```
-Cursor Settings -> Rules & Memories -> User Rules -> Click on "+ Add Rule"
-```
+**Skills** in `.cursor/skills/` are loaded by Cursor as user-level skills (this repo is `~/.cursor`). You do not need to copy content into Cursor's User Rules; the agent uses the skills automatically when relevant. If you previously pasted rules into User Rules, you can clear that field in Cursor Settings after confirming skills work.
 
 ## 🚀 Quick Start
 
@@ -140,42 +125,41 @@ This repository includes 5 safety hooks that automatically protect against dange
 | `check-branch-protection.sh` | `afterFileEdit`        | Warns about edits on main/master branches         |
 | `suggest-safe-commands.sh`   | `beforeSubmitPrompt`   | Suggests safe alternatives for dangerous commands |
 
-## 📋 Development Rules
+## 📋 Skills (Rules + Commands)
 
-The repository includes 4 comprehensive rule files:
+Behavior is defined by **Agent Skills** in `.cursor/skills/`. Each skill has a `SKILL.md` with when to use it and the full instructions. Cursor loads these automatically; no need to paste anything into User Rules.
 
-- **`rules/safety.md`** - Git safety, command safety, and data safety rules
-- **`rules/quality.md`** - Code quality, quality gates, and documentation standards
-- **`rules/workflow.md`** - Language, terminal, workspace, and branch management rules
-- **`rules/integration.md`** - Linear, GitHub, and MCP integration guidelines
+| Skill | Purpose |
+|-------|---------|
+| **safety** | Git, command, k8s, data, workspace safety |
+| **workflow** | Language, branch, commit, PR, planning workflow |
+| **integration** | Linear, GitHub, Trunk, MCP integration |
+| **quality** | Code quality, gates, docs, character hygiene |
+| **linear** | Linear rules + create/update/list/triage/view/project commands |
+| **git** | commit, git-branch, git-reset, git-status |
+| **k8s** | k8s-check, k8s-validate, k8s-diff |
+| **pr** | Create PR, validate, mark ready for review |
+| **plan** | Create/update project plans in .cursor/plans/ |
+| **workspace-status** | Multi-repo workspace overview |
+
+To change behavior, edit the corresponding `skills/<name>/SKILL.md` file. The `rules/` and `commands/` directories remain as the original source; skills were generated from them and are what Cursor uses.
 
 ## 🛠️ Customization
 
-### Adding New Commands
+### Adding or Changing Skills
 
-1. Create a new `.md` file in the `commands/` directory
-2. Follow the existing command format with proper sections:
-   - `<task>` - Command description
-   - `<context>` - Rules and constraints
-   - `<workflow>` - Step-by-step process
-   - `<safety_checks>` - Safety validations
-   - `<example_usage>` - Usage examples
+1. Edit or create `skills/<skill-name>/SKILL.md`
+2. Use YAML frontmatter: `name`, `description` (clear "when to use"), and `disable-model-invocation: true` for command-like skills (explicit user trigger only)
+3. Keep content in one place; Cursor loads from `.cursor/skills/` (this repo is `~/.cursor`)
 
 For more details on Cursor agent capabilities, see:
 
 - [Cursor Agent Overview](https://cursor.com/docs/agent/overview)
 - [Cursor Agent Hooks](https://cursor.com/docs/agent/hooks)
 
-### Modifying Existing Commands
-
-1. Edit the relevant `.md` file in `commands/`
-2. Test your changes in a development environment
-3. Update documentation if needed
-4. Commit changes with conventional commit format
-
 ### Project-Specific Rules
 
-Create a `.cursor/rules.md` file in your project to add project-specific rules that complement the base commands.
+Create a `.cursor/rules.md` file in your project to add project-specific rules that complement the base skills.
 
 ## 📚 Documentation
 
