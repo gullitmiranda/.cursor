@@ -1,7 +1,6 @@
 ---
 name: pr
 description: Pull request lifecycle - create PR with gh CLI, validate quality gates, and mark ready for review. Use when creating a PR, running quality checks, or marking PR ready for review.
-disable-model-invocation: true
 ---
 # Pull Request Management
 

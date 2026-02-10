@@ -1,7 +1,6 @@
 ---
 name: plan
 description: Create or update project plans. Use when the user asks to create a plan, update a plan, or break down work into a plan (in or out of plan mode). Always use standard plan format and location so plans are consistent.
-disable-model-invocation: true
 ---
 # Plan
 

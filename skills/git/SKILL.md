@@ -1,7 +1,6 @@
 ---
 name: git
 description: Safe Git workflow - commit with conventional format and branch safety, create branches, reset with backup, and multi-repo status. Use when committing, creating branches, resetting, or checking git status in multi-repo workspaces.
-disable-model-invocation: true
 ---
 # /commit - Smart Git Commit
 

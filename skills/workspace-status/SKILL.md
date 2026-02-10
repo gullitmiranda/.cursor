@@ -1,7 +1,6 @@
 ---
 name: workspace-status
 description: Multi-repository workspace status overview and analysis. Use when checking workspace state, understanding repo boundaries, or before running git operations in multi-repo workspaces.
-disable-model-invocation: true
 ---
 # Workspace Status Command
 

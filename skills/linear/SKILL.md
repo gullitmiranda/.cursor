@@ -1,7 +1,6 @@
 ---
 name: linear
 description: Linear integration with Linearis CLI - rules, team config, issue format, and all Linear operations (create, update, comment, list, triage, view, project create/plan). Use when creating or managing Linear issues, referencing issues in commits/PRs, or working with Linear projects.
-disable-model-invocation: true
 ---
 # Linear Integration Rules
 

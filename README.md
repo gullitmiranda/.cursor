@@ -149,7 +149,7 @@ To change behavior, edit the corresponding `skills/<name>/SKILL.md` file. Skills
 ### Adding or Changing Skills
 
 1. Edit or create `skills/<skill-name>/SKILL.md`
-2. Use YAML frontmatter: `name`, `description` (clear "when to use"), and `disable-model-invocation: true` for command-like skills (explicit user trigger only)
+2. Use YAML frontmatter: `name`, `description` (clear "Use when..." so the agent loads the skill when context matches)
 3. Keep content in one place; Cursor loads from `.cursor/skills/` (this repo is `~/.cursor`)
 
 For more details on Cursor agent capabilities, see:
@@ -183,7 +183,7 @@ Excludes Cursor-specific files that shouldn't be shared:
 
 ### Skill Files
 
-Each skill is a `SKILL.md` file with YAML frontmatter (`name`, `description`) and markdown instructions. Command-like skills use `disable-model-invocation: true` so they are triggered explicitly by the user.
+Each skill is a `SKILL.md` file with YAML frontmatter (`name`, `description`) and markdown instructions. The agent loads skills when the context matches the description (e.g. when you discuss commits, the git skill applies).
 
 ## 🎯 Features
 

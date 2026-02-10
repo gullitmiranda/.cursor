@@ -1,7 +1,6 @@
 ---
 name: k8s
 description: Safe Kubernetes operations - check resources (read-only), validate manifests (dry-run), and diff changes. Use when inspecting pods/deployments, validating YAML, or previewing apply changes. Never run kubectl delete or apply.
-disable-model-invocation: true
 ---
 # /k8s-check
 
