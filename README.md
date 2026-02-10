@@ -6,19 +6,19 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 
 ```
 .cursor/
-├── skills/            # Agent Skills (what Cursor loads - migrated from rules + commands)
+├── skills/            # Agent Skills (canonical source; Cursor loads these)
 │   ├── safety/       # Git, command, k8s, data, workspace safety
 │   ├── workflow/     # Language, branch, commit, PR, planning workflow
 │   ├── integration/  # Linear, GitHub, Trunk, MCP integration
 │   ├── quality/      # Code quality, gates, docs, character hygiene
-│   ├── linear/       # Linear rules + all Linear CLI commands (create, update, list, etc.)
+│   ├── linear/       # Linear rules + all Linear CLI commands
 │   ├── git/          # commit, git-branch, git-reset, git-status
 │   ├── k8s/          # k8s-check, k8s-validate, k8s-diff
 │   ├── pr/           # Pull request create, check, ready
 │   ├── plan/         # Project plan creation
-│   └── workspace-status/
-├── commands/         # Source for slash-command behavior (content migrated into skills)
-├── rules/            # Source for rule content (content migrated into skills)
+│   ├── workspace-status/
+│   └── persist-agent-constraints/
+├── backups/          # Other backups (e.g. user-rules)
 ├── hooks/            # Safety hooks (5 hooks)
 ├── docs/             # Detailed documentation
 ├── examples/         # Usage examples and templates
@@ -52,7 +52,7 @@ ln -s $PWD/.cursor ~/.cursor
 
 1. Open Cursor in your project directory
 2. The settings will be automatically detected from the `.cursor/` folder
-3. Customize the commands and rules as needed for your project
+3. Customize the skills in `skills/` as needed for your project
 
 ### 3. Start Using Commands
 
@@ -142,7 +142,7 @@ Behavior is defined by **Agent Skills** in `.cursor/skills/`. Each skill has a `
 | **plan** | Create/update project plans in .cursor/plans/ |
 | **workspace-status** | Multi-repo workspace overview |
 
-To change behavior, edit the corresponding `skills/<name>/SKILL.md` file. The `rules/` and `commands/` directories remain as the original source; skills were generated from them and are what Cursor uses.
+To change behavior, edit the corresponding `skills/<name>/SKILL.md` file. Skills are the only source; previous `rules/` and `commands/` content was removed and is preserved in git history.
 
 ## 🛠️ Customization
 
@@ -181,15 +181,9 @@ Excludes Cursor-specific files that shouldn't be shared:
 - IDE state files
 - Personal configuration files
 
-### Command Files
+### Skill Files
 
-Each command is defined in a separate `.md` file with structured sections for:
-
-- Task definition
-- Context and rules
-- Workflow steps
-- Safety checks
-- Usage examples
+Each skill is a `SKILL.md` file with YAML frontmatter (`name`, `description`) and markdown instructions. Command-like skills use `disable-model-invocation: true` so they are triggered explicitly by the user.
 
 ## 🎯 Features
 

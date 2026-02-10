@@ -2,7 +2,7 @@
 
 This document explains the rules and guidelines that govern the Cursor commands and development workflows in this repository.
 
-> **Note:** Rules have been migrated to **Agent Skills** in `.cursor/skills/` (safety, workflow, integration, quality, linear). Cursor loads those skills automatically. This doc remains as reference; the canonical behavior is in the skills.
+> **Note:** Rules were migrated to **Agent Skills** in `.cursor/skills/` (safety, workflow, integration, quality, linear). Skills are the canonical source; original rule files were removed and are in git history. This doc remains as reference.
 
 ## 🎯 Rule Categories
 

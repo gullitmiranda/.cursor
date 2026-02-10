@@ -11,7 +11,7 @@ This document provides examples of how to set up Cursor settings for different t
 ```
 my-web-app/
 ├── .cursor/
-│   ├── commands/
+│   ├── skills/
 │   ├── docs/
 │   └── examples/
 ├── src/
@@ -23,8 +23,8 @@ my-web-app/
 **Setup Steps**:
 
 1. Follow the [Quick Start guide](../../README.md#-quick-start) to set up .cursor
-2. Customize commands for your project
-3. Add project-specific rules
+2. Customize skills for your project (edit `skills/<name>/SKILL.md`)
+3. Add project-specific rules (e.g. `.cursor/rules.md` in the project)
 
 ### Monorepo Setup
 
@@ -43,8 +43,8 @@ monorepo/
 **Setup Steps**:
 
 1. Set up .cursor at root level
-2. Configure workspace-aware commands
-3. Set up multi-repository rules
+2. Use workspace-aware skills (e.g. git, workspace-status)
+3. Follow multi-repository guidelines in the workflow and safety skills
 
 ## 🔧 Environment-Specific Setup
 
@@ -62,16 +62,16 @@ monorepo/
 
 ## 📝 Customization Examples
 
-### Adding Project-Specific Commands
+### Adding Project-Specific Skills
 
-1. Create new command file in `commands/`
-2. Follow existing command structure
+1. Create a new skill in `skills/<skill-name>/SKILL.md`
+2. Use YAML frontmatter (`name`, `description`) and markdown instructions
 3. Add to documentation
 
-### Customizing Rules
+### Customizing Behavior
 
-1. Edit files in `rules/` directory
-2. Add project-specific guidelines
+1. Edit the relevant `skills/<name>/SKILL.md` file
+2. Add project-specific guidelines in skills or in the project's `.cursor/rules.md`
 3. Update documentation
 
 ## 🚀 Integration Examples
