@@ -1,6 +1,6 @@
-# Basic Command Usage Examples
+# Basic Usage Examples
 
-This document provides practical examples of how to use the Cursor commands in real development scenarios.
+This document provides practical examples of how to use the skill-driven workflows (git, pr, k8s, plan) in real development scenarios. Behavior is implemented by Agent Skills in `.cursor/skills/`.
 
 ## 🚀 Getting Started
 

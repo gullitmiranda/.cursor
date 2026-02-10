@@ -18,7 +18,7 @@ A comprehensive collection of Cursor AI editor settings, commands, and rules des
 │   ├── plan/         # Project plan creation
 │   ├── workspace-status/
 │   └── persist-agent-constraints/
-├── backups/          # Other backups (e.g. user-rules)
+├── backups/          # Backups (if needed)
 ├── hooks/            # Safety hooks (5 hooks)
 ├── docs/             # Detailed documentation
 ├── examples/         # Usage examples and templates

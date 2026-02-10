@@ -1,6 +1,6 @@
 # Contributing to Cursor Settings
 
-Thank you for your interest in contributing to this Cursor settings repository! This document provides guidelines for contributing commands, rules, and improvements.
+Thank you for your interest in contributing to this Cursor settings repository! This document provides guidelines for contributing skills, documentation, and improvements.
 
 ## 🎯 How to Contribute
 
@@ -8,12 +8,12 @@ Thank you for your interest in contributing to this Cursor settings repository! 
 
 We welcome several types of contributions:
 
-1. **New Commands** - Add new Cursor commands for development workflows
-2. **Command Improvements** - Enhance existing commands with new features
+1. **New Skills** - Add new Agent Skills for development workflows
+2. **Skill Improvements** - Enhance existing skills with new guidelines or procedures
 3. **Documentation** - Improve documentation and examples
-4. **Bug Fixes** - Fix issues in existing commands
+4. **Bug Fixes** - Fix issues in existing skills
 5. **Examples** - Add usage examples and templates
-6. **Rules** - Add or improve development rules and guidelines
+6. **Guidelines** - Add or improve development guidelines within skills
 
 ### Getting Started
 
@@ -42,18 +42,18 @@ We welcome several types of contributions:
 
    ```bash
    git add .
-   git commit -m "feat: add new command for deployment"
+   git commit -m "feat: add new skill for deployment"
    ```
 
 5. **Create a Pull Request**
    - Use the `/pr` command to create a well-formatted PR
    - Or manually create a PR with proper title and description
 
-## 📝 Command Development Guidelines
+## 📝 Skill Development Guidelines
 
-### Command File Structure
+### Skill File Structure
 
-Each command should follow this structure in a `.md` file:
+Each skill lives in `skills/<skill-name>/SKILL.md` with YAML frontmatter and markdown body. For workflow-style skills, the body can follow a structure like:
 
 ````markdown
 # Command Name
@@ -99,15 +99,15 @@ Arguments: $ARGUMENTS (description of arguments)
 
 ```
 
-### Command Naming Conventions
+### Skill Naming Conventions
 
 - Use descriptive, action-oriented names
-- Use kebab-case for multi-word commands
-- Examples: `git-commit`, `pr-create`, `k8s-deploy`
+- Use kebab-case for skill names (e.g. `git`, `linear`, `workspace-status`)
+- Frontmatter: `name` and `description` (include "Use when..." for when the agent should load the skill)
 
 ### Safety Guidelines
 
-All commands must include safety checks:
+Skills that involve operations must include safety checks:
 
 - **Never execute destructive operations without confirmation**
 - **Always validate inputs and environment**
@@ -117,31 +117,31 @@ All commands must include safety checks:
 
 ### Testing Requirements
 
-Before submitting a command:
+Before submitting a skill:
 
 1. **Test in Isolation** - Test the command in a clean environment
 2. **Test Edge Cases** - Test with invalid inputs, missing dependencies
-3. **Test Safety Checks** - Verify safety mechanisms work correctly
+3. **Test Safety Checks** - Verify safety mechanisms work correctly (for skills that run operations)
 4. **Test Documentation** - Ensure examples work as documented
 
 ## 📚 Documentation Standards
 
 ### README Updates
 
-When adding new commands or features:
+When adding new skills or features:
 
 1. Update the main README.md with:
-   - Command description
+   - Skill description and when it applies
    - Usage examples
    - Any new dependencies or requirements
 
-2. Update the command table with new entries
+2. Update the skills table with new entries
 
 3. Add any new configuration requirements
 
-### Command Documentation
+### Skill Documentation
 
-Each command file should include:
+Each skill file should include:
 
 - Clear task description
 - Complete workflow steps
@@ -154,7 +154,7 @@ Each command file should include:
 
 Add practical examples in the `examples/` directory:
 
-- `examples/commands/` - Command usage examples
+- `examples/commands/` - Usage examples for skill-driven workflows (e.g. git, pr)
 - `examples/configs/` - Configuration examples
 - `examples/workflows/` - Complete workflow examples
 
@@ -167,9 +167,9 @@ Add practical examples in the `examples/` directory:
 - Use consistent heading levels
 - Include table of contents for long documents
 
-### Command Structure
+### Skill Structure
 
-- Keep commands focused on single responsibilities
+- Keep skills focused on single domains or workflows
 - Use clear, descriptive variable names
 - Include comprehensive error handling
 - Follow the established patterns

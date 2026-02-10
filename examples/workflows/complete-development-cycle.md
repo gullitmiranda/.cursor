@@ -1,6 +1,6 @@
 # Complete Development Cycle Workflow
 
-This document demonstrates a complete development cycle using Cursor commands, from initial setup to production deployment.
+This document demonstrates a complete development cycle using Cursor skills (git, pr, plan, k8s, workspace-status), from initial setup to production deployment. The workflows below are implemented by Agent Skills in `.cursor/skills/`.
 
 ## 🚀 Scenario: Adding User Authentication Feature
 
