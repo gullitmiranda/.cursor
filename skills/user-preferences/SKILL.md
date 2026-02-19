@@ -20,3 +20,4 @@ description: Always apply guma's personal preferences across projects (user-leve
 ## Learned preferences
 
 - Do not push unless the user explicitly requests it; be especially cautious with `main`/`master`.
+- When instructed to use a git worktree, create/use the worktree and avoid making changes in the primary worktree.

@@ -21,4 +21,9 @@ Usage examples:
 When this command is used:
 
 - Apply the `learn` skill workflow.
-- Default scope to `project` unless the user explicitly requests `project-local` or `user`.
+- Default scope to `project` for repo conventions, **but** prefer `scope=user` when the text is clearly a personal preference about the assistant's behavior (not a project convention).
+  - Examples that should infer `scope=user` (even without an explicit prefix):
+    - "Always respect when I'm told to use a git worktree."
+    - "Only push when explicitly requested."
+    - "Ask before committing."
+    - PT-BR equivalents: "sempre ...", "nunca ...", "nao faça ...", when addressed to the assistant's behavior.

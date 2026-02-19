@@ -9,8 +9,8 @@ Persist "learned" instructions so they work across agentic coding tools, not jus
 
 Principles:
 
-- Default scope is PROJECT (shared, version-controlled).
-- Only use PROJECT-LOCAL or USER when explicitly requested or clearly implied.
+- Default scope is PROJECT (shared, version-controlled) for repo conventions.
+- Use USER when the instruction is clearly a personal preference about the assistant's behavior (even if the user did not explicitly write `scope=user:`).
 - Keep everything ASCII; avoid invisible Unicode.
 - Never update git config.
 
@@ -91,7 +91,8 @@ If `AGENTS.local.md` exists, treat it as personal (project-local) preferences.
 Heuristic upgrade (avoid wrong default):
 
 - If the rule is about the assistant's behavior/preferences (not a repo convention), prefer `user`.
-  - Examples: "only push when requested", "ask before committing", "be concise", "avoid emojis".
+  - Examples (EN): "only push when requested", "ask before committing", "be concise", "avoid emojis".
+  - Examples (PT-BR): "sempre respeite quando eu mandar usar uma git worktree", "nao faca commits na main sem eu pedir", "pergunte antes de commitar".
 - If the rule is about a specific repo's conventions/stack, prefer `project`.
   - Examples: "in this repo we use pnpm", "this repo uses pytest", "our CI uses trunk".
 - If the rule is personal AND repo-specific (or explicitly says "only for me here"), use `project-local`.
