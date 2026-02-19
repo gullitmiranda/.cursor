@@ -1,77 +1,43 @@
-# IDE and editor files
+# This repo stores shareable Cursor config in `.cursor/`.
+# Prefer a denylist: keep versionable files visible by default and only ignore
+# machine-generated/runtime artifacts.
+
+# macOS
+.DS_Store
+
+# Cursor runtime/state (often machine/user specific and/or large)
+projects/
+subagents/
+plugins/
+
+# Cursor installation artifacts (very large, never version)
+extensions/
+snapshots/
+ai-tracking/
+interpreter-notebooks/
+skills-cursor/
+
+# Editor config (keep useful settings versioned)
 .vscode/
+!.vscode/
 !.vscode/settings.json
 !.vscode/extensions.json
-.idea/
-*.swp
-*.swo
-*~
+.vscode/mise-tools/
 
-# OS generated files
-.DS_Store
-._*
-.Spotlight-V100
-.Trashes
-Thumbs.db
-
-# Logs and runtime data
-*.log
-logs/
-*.pid
-*.seed
-
-# Coverage and cache
-coverage/
-.nyc_output
-.npm
-.eslintcache
-.rpt2_cache/
-.node_repl_history
-
-# Dependencies
-node_modules/
-jspm_packages/
-
-# Environment files
-.env
-.env.*
-!.env.example
-
-# Temporary and backup files
-tmp/
-temp/
-*.tmp
-*.bak
-*.backup
-
-# Lock files
-yarn.lock
-pnpm-lock.yaml
-
-# Build outputs
-dist/
-build/
-out/
-target/
-
-# -------------------------------
-# Cursor local files that should not be shared
-# -------------------------------
-/extensions/
-/interpreter-notebooks/
-/skills-cursor/
-argv.json
-ide_state.json
-cli-config.json
-mcp.json
-unified_repo_list.json
+# Local-only misc state
 blocklist
 
-# -------------------------------
-# Temporary and planning files
-# -------------------------------
-plans/
-*.plan
-*.migration
-/projects/
-/ai-tracking/
+# Local-only config/state (may contain machine IDs or secrets)
+mcp.json
+argv.json
+cli-config.json
+ide_state.json
+unified_repo_list.json
+
+# If these ever get created inside the repo, ignore them too
+**/terminals/
+**/agent-tools/
+**/agent-notes/
+
+# Generic logs
+*.log

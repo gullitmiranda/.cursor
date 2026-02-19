@@ -4,7 +4,26 @@ This document explains the rules and guidelines that govern the Cursor commands 
 
 > **Note:** Rules were migrated to **Agent Skills** in `.cursor/skills/` (safety, workflow, integration, quality, linear). Skills are the canonical source; original rule files were removed and are in git history. This doc remains as reference.
 
-## 🎯 Rule Categories
+## Skills are canonical (no .cursor/rules in this repo)
+
+**This repo is `~/.cursor`** (user-level config when cloned/symlinked into your home directory). Paths like `.cursor/skills/` in this repo refer to `~/.cursor/skills/`.
+
+- We **do not use** `.cursor/rules/` in this repo; behavior is defined by **skills** (`~/.cursor/skills/`) and **slash commands** (`~/.cursor/commands/` = `.cursor/commands/` here). Commands must live in `commands/*.md` at repo root (i.e. `~/.cursor/commands/` when symlinked) to appear in Cursor's list.
+- **User rules (global):** Cursor Settings → Rules for AI. This repo does not populate that; we use skills instead.
+- **Project rules:** Cursor supports `<project-root>/.cursor/rules/*.mdc` per project. We treat that as legacy/optional; the canonical source for our config is skills and commands.
+- **This repo:** provides skills, commands, and docs. No rule files are shipped here.
+
+## Cross-tool project rules (recommended)
+
+When working in a project repo (not this `~/.cursor` repo), prefer tool-agnostic rule files so multiple "agentic coding" tools can follow the same source of truth:
+
+- `AGENTS.md` (project, shared, version-controlled): canonical project rules and conventions
+- `AGENTS.local.md` (project-local, personal, not committed): personal preferences for that repo
+- `.claude/CLAUDE.md` (project shim): a short pointer telling Claude-based tools to read `AGENTS.md` (and `AGENTS.local.md` if present)
+
+We provide a `/learn` command in this repo to automate persisting rules into these files with a clear scope (project / project-local / user).
+
+## Rule Categories
 
 ### 1. Safety Rules
 

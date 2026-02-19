@@ -2,6 +2,7 @@
 name: integration
 description: Linear, GitHub, Trunk, MCP, and external service integration rules. Use when using Linearis, gh CLI, Trunk, MCP servers, or external APIs.
 ---
+
 # Integration Rules
 
 ## Linear Integration
@@ -9,6 +10,7 @@ description: Linear, GitHub, Trunk, MCP, and external service integration rules.
 See the **linear** skill for full Linear rules and CLI commands (skills/linear/).
 
 Quick reference:
+
 - **CLI Tool**: Linearis (`linearis` command)
 - **Default Team**: Self Driven Platform (PLTFRM)
 - **Default Status**: Backlog
@@ -48,6 +50,10 @@ Quick reference:
 - Assign reviewers based on code ownership
 
 ## Trunk Integration
+
+### Fix workflow (agent)
+
+When fixing lint/format issues in a Trunk-enabled project: run `trunk check --fix` first so Trunk auto-fixes what it can; then fix manually whatever remains. Do not skip Trunk—use it first, then the agent.
 
 ### Tool Configuration
 

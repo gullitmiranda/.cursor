@@ -2,10 +2,13 @@
 
 A comprehensive collection of Cursor AI editor settings, commands, and rules designed for professional development workflows. This repository contains reusable configurations that can be shared across teams and projects.
 
+**Important:** This repository **is** your **user-level** Cursor config. When you clone it and symlink it as `~/.cursor`, the paths in this repo (e.g. `skills/`, `hooks/`, `examples/`) are the contents of `~/.cursor`. We use **skills** and **commands** (`commands/`), not `.cursor/rules/` in this repo; project-level `.cursor/rules/` in other repos are legacy/optional. See [Rules documentation](docs/rules.md#skills-are-canonical-no-cursorrules-in-this-repo) for the distinction.
+
 ## 📁 Repository Structure
 
 ```
-.cursor/
+.cursor/   (this repo = ~/.cursor when symlinked)
+├── commands/           # Slash commands (→ ~/.cursor/commands/; appear in Cursor's / menu)
 ├── skills/            # Agent Skills (canonical source; Cursor loads these)
 │   ├── safety/       # Git, command, k8s, data, workspace safety
 │   ├── workflow/     # Language, branch, commit, PR, planning workflow
@@ -66,6 +69,7 @@ ln -s $PWD/.cursor ~/.cursor
 /commit --all                    # Stage and commit all changes
 /commit --main                   # Emergency fix to main branch
 /pr                              # Create pull request
+/learn "In this repo, we use pnpm."  # Persist a project rule (AGENTS.md + .claude shim)
 
 # Kubernetes operations
 /k8s-check pods                  # Safe resource inspection
@@ -75,6 +79,7 @@ ln -s $PWD/.cursor ~/.cursor
 # Planning and workspace
 /plan "Add authentication"       # Create project plan
 /workspace-status               # Check multi-repo workspace
+/gremlin-clean                  # Strip invisible/gremlin Unicode from current file or paths
 ```
 
 ## 📋 Available Commands
@@ -87,6 +92,12 @@ ln -s $PWD/.cursor ~/.cursor
 | `/git-branch` | Safe branch creation with naming conventions | `/git-branch feature/auth`                   |
 | `/git-reset`  | Safe git reset with automatic backup         | `/git-reset --soft HEAD~1`                   |
 | `/git-status` | Multi-repository status check                | `/git-status`                                |
+
+### Learning Commands
+
+| Command  | Description                                            | Usage              |
+| -------- | ------------------------------------------------------ | ------------------ |
+| `/learn` | Persist rules with scope: project, project-local, user | `/learn "rule..."` |
 
 ### Pull Request Commands
 
@@ -129,18 +140,18 @@ This repository includes 5 safety hooks that automatically protect against dange
 
 Behavior is defined by **Agent Skills** in `.cursor/skills/`. Each skill has a `SKILL.md` with when to use it and the full instructions. Cursor loads these automatically; no need to paste anything into User Rules.
 
-| Skill | Purpose |
-|-------|---------|
-| **safety** | Git, command, k8s, data, workspace safety |
-| **workflow** | Language, branch, commit, PR, planning workflow |
-| **integration** | Linear, GitHub, Trunk, MCP integration |
-| **quality** | Code quality, gates, docs, character hygiene |
-| **linear** | Linear rules + create/update/list/triage/view/project commands |
-| **git** | commit, git-branch, git-reset, git-status |
-| **k8s** | k8s-check, k8s-validate, k8s-diff |
-| **pr** | Create PR, validate, mark ready for review |
-| **plan** | Create/update project plans in .cursor/plans/ |
-| **workspace-status** | Multi-repo workspace overview |
+| Skill                | Purpose                                                        |
+| -------------------- | -------------------------------------------------------------- |
+| **safety**           | Git, command, k8s, data, workspace safety                      |
+| **workflow**         | Language, branch, commit, PR, planning workflow                |
+| **integration**      | Linear, GitHub, Trunk, MCP integration                         |
+| **quality**          | Code quality, gates, docs, character hygiene                   |
+| **linear**           | Linear rules + create/update/list/triage/view/project commands |
+| **git**              | commit, git-branch, git-reset, git-status                      |
+| **k8s**              | k8s-check, k8s-validate, k8s-diff                              |
+| **pr**               | Create PR, validate, mark ready for review                     |
+| **plan**             | Create/update project plans in .cursor/plans/                  |
+| **workspace-status** | Multi-repo workspace overview                                  |
 
 To change behavior, edit the corresponding `skills/<name>/SKILL.md` file. Skills are the only source; previous `rules/` and `commands/` content was removed and is preserved in git history.
 
@@ -157,15 +168,20 @@ For more details on Cursor agent capabilities, see:
 - [Cursor Agent Overview](https://cursor.com/docs/agent/overview)
 - [Cursor Agent Hooks](https://cursor.com/docs/agent/hooks)
 
-### Project-Specific Rules
+### Slash commands vs skills
 
-Create a `.cursor/rules.md` file in your project to add project-specific rules that complement the base skills.
+**Slash commands** (e.g. `/gremlin-clean`, `/quality`) must be defined in **`commands/*.md`** in this repo (→ `~/.cursor/commands/`) so they appear in Cursor's command list. The content of each file is the instruction sent when the user runs that command. Do not define new commands only inside skill text—add a `.md` file under `commands/` as well.
+
+### Project-specific rules (optional)
+
+Projects can add their own `.cursor/rules/` or `AGENTS.md`; we treat that as optional. Our canonical source is skills and commands in this repo.
 
 ## 📚 Documentation
 
 - [Commands Documentation](docs/commands.md) - Detailed command reference
 - [Rules Documentation](docs/rules.md) - Rules and guidelines
 - [Hooks Documentation](docs/hooks.md) - Safety hooks and automation
+- [Gremlin characters (Cursor/LLM)](docs/gremlin-characters-cursor-llm.md) - Why invisible Unicode appears and what to do
 - [Examples](examples/) - Usage examples and templates
 - [Changelog](CHANGELOG.md) - Recent changes and updates
 - [Contributing](CONTRIBUTING.md) - How to contribute to this repository

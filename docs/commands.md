@@ -2,17 +2,23 @@
 
 This document provides detailed information about all available Cursor commands in this repository.
 
-> **Note:** Command behavior is implemented as **Agent Skills** in `.cursor/skills/` (git, k8s, linear, pr, plan, workspace-status). Skills are the canonical source; original command files were removed and are in git history. This doc remains as reference.
+> **Note:** Slash commands are defined in `commands/*.md` (so they appear in the / menu). Behavior is implemented in **skills** (git, k8s, linear, pr, quality, etc.). This doc is reference.
 
 ## 📋 Command Overview
 
-| Command         | Category | Description                                  | Complexity |
-| --------------- | -------- | -------------------------------------------- | ---------- |
-| `/commit`       | Git      | Smart git commit with conventional format    | Medium     |
-| `/pr`           | GitHub   | Create pull request with quality checks      | High       |
-| `/pr check`     | GitHub   | Validate PR quality and completeness         | Medium     |
-| `/pr ready`     | GitHub   | Mark PR ready for review                     | Low        |
-| `/linear-issue` | Linear   | Create, list, view, and update Linear issues | Medium     |
+| Command          | Category | Description                                  | Complexity |
+| ---------------- | -------- | -------------------------------------------- | ---------- |
+| `/commit`        | Git      | Smart git commit with conventional format    | Medium     |
+| `/learn`         | Rules    | Persist learnings to AGENTS.md / user prefs  | Low        |
+| `/gremlin-clean` | Quality  | Strip gremlin/invisible Unicode from files   | Low        |
+| `/pr`            | GitHub   | Create pull request with quality checks      | High       |
+| `/pr check`      | GitHub   | Validate PR quality and completeness         | Medium     |
+| `/pr ready`      | GitHub   | Mark PR ready for review                     | Low        |
+| `/linear-issue`  | Linear   | Create, list, view, and update Linear issues | Medium     |
+
+**`/gremlin-clean`**: Strip gremlin/invisible Unicode from current file or given path(s). Instruction: [commands/gremlin-clean.md](../commands/gremlin-clean.md). See [Gremlin characters](gremlin-characters-cursor-llm.md).
+
+**`/learn`**: Persist "learned" instructions in a tool-agnostic way. Default scope is project (writes `AGENTS.md` in the current repo). Instruction: [commands/learn.md](../commands/learn.md).
 
 ## 🔧 Git Commands
 
@@ -73,19 +79,16 @@ chore(deps): update dependencies to latest versions
 ### Command Workflow
 
 1. **Branch Safety Check**
-
    - Verifies not on main/master branch
    - **If on main/master**: Automatically creates feature branch based on changes
    - Creates feature branch if needed
 
 2. **Change Analysis**
-
    - Runs `git status` and `git diff --cached`
    - Detects commit type from changes
    - Identifies affected components
 
 3. **Message Generation**
-
    - Formats as `<type>(<scope>): <description>`
    - Includes Linear issue references
    - Uses present tense, imperative mood
@@ -125,25 +128,21 @@ chore(deps): update dependencies to latest versions
 **Workflow**:
 
 1. **Pre-flight Checks**
-
    - Verifies feature branch (not main/master)
    - Checks for commits ahead of base
    - Ensures branch is pushed to remote
 
 2. **Change Analysis**
-
    - Analyzes commit history
    - Identifies primary change type
    - Determines affected scope
 
 3. **Title Generation**
-
    - Uses conventional commit format
    - Summarizes overall changes
    - Keeps under 72 characters
 
 4. **Description Building**
-
    - Uses GitHub PR template if available
    - Generates summary from commits
    - Adds test plan checklist
@@ -179,14 +178,12 @@ chore(deps): update dependencies to latest versions
 **Quality Gates**:
 
 1. **Project Quality Checks**
-
    - Tests (auto-detected from project structure)
    - Linting (eslint, prettier, etc.)
    - Build validation
    - Security scans
 
 2. **PR Quality Validation**
-
    - Title format (conventional commits)
    - Description completeness
    - Metadata (assignees, labels, reviewers)
@@ -224,25 +221,21 @@ chore(deps): update dependencies to latest versions
 **Workflow**:
 
 1. **Status Check**
-
    - Verifies PR exists and is accessible
    - Checks current status (draft, open, etc.)
    - Confirms branch association
 
 2. **Quality Validation**
-
    - Runs validation checks
    - Ensures template completion
    - Verifies conventional commit format
 
 3. **CI/CD Verification**
-
    - Checks all required checks
    - Waits for in-progress checks
    - Identifies blocking issues
 
 4. **Reviewer Assignment**
-
    - Detects reviewers from CODEOWNERS
    - Suggests based on changed files
    - Assigns PR to author
@@ -384,7 +377,6 @@ Commands look for quality check commands in:
 **Workflow**:
 
 1. **Create Issue**
-
    - Parse title and optional description
    - Apply default settings (team, assignee, status)
    - Auto-detect issue type and labels
@@ -392,21 +384,18 @@ Commands look for quality check commands in:
    - Return issue URL and reference format
 
 2. **List Issues**
-
    - Apply filters (assignee, team, status, label, query)
    - Retrieve issues via Linear MCP
    - Format as table with key information
    - Include Linear URLs
 
 3. **View Issue**
-
    - Parse issue ID (supports PLTFRM-123 or 123 format)
    - Retrieve full issue details
    - Display description, status, assignee, comments
    - Show git branch name if available
 
 4. **Update Issue**
-
    - Parse issue ID and update fields
    - Merge updates with existing data
    - Update via Linear MCP

@@ -1,8 +1,11 @@
 ---
 name: quality
-description: Code quality, commit standards, quality gates, PR standards, documentation, performance, security, and output character hygiene (gremlin characters). Use when writing code, committing, creating PRs, or generating any text.
+description: Code quality, commit standards, quality gates, PR standards, documentation, performance, security, and output character hygiene (gremlin characters). Use when writing code, committing, creating PRs, generating any text, or when the user runs /gremlin-clean.
 ---
+
 # Quality Rules
+
+**MANDATORY — Output hygiene:** Never use gremlin/invisible characters in any generated text. Use only standard space (U+0020) and normal line breaks (LF/CRLF). No zero-width (U+200B, U+200D, U+200C), no non-breaking space (U+00A0) unless required, no control or separator characters (U+2028, U+2029). Rewrite pasted content as clean text instead of copying raw.
 
 ## Code Quality
 
@@ -23,6 +26,16 @@ description: Code quality, commit standards, quality gates, PR standards, docume
 - Include proper error handling
 - Write clear, self-documenting code
 - Add comments for complex logic
+
+### Lint and format fix workflow (Trunk)
+
+When fixing lint, format, or style issues in a project that uses Trunk:
+
+1. **First:** Run `trunk check --fix` to auto-fix everything Trunk can fix.
+2. **Then:** Address any remaining issues manually (what Trunk reports but could not auto-fix).
+3. Re-run `trunk check` (or `trunk check --fix`) to confirm all issues are resolved.
+
+Do not manually fix what Trunk can fix; let Trunk do it first, then the agent resolves the rest.
 
 ### Code Organization
 
@@ -169,17 +182,22 @@ description: Code quality, commit standards, quality gates, PR standards, docume
 
 ## Output / Character Hygiene (Gremlin Characters)
 
-The AI must ensure that all generated text—including code, comments, documentation, and user-facing messages—is free from "gremlin characters" (invisible or problematic Unicode). These characters cause rendering issues, unexpected behavior, and parsing errors.
+**Known Cursor/LLM issue:** Models sometimes emit invisible Unicode despite instructions. See `docs/gremlin-characters-cursor-llm.md` for references and full list.
+
+The AI must ensure that all generated text—including code, comments, documentation, and user-facing messages—is free from "gremlin characters" (invisible or problematic Unicode). These cause rendering issues, lint errors (e.g. `no-irregular-whitespace`), and parsing errors.
 
 ### Prohibited Characters
 
-Avoid using the following; use standard ASCII/visible equivalents instead:
+Use only **U+0020** (space) and **LF/CRLF**. Avoid:
 
-- **Zero-width characters**: Zero-width space (U+200B), zero-width joiner (U+200D), zero-width non-joiner (U+200C)
-- **Non-breaking space** (U+00A0) unless explicitly required for formatting (e.g. in docs)
-- **Control characters**: U+0000–U+001F, U+007F
-- **Line / paragraph separators**: Line Separator (U+2028), Paragraph Separator (U+2029)
-- **Other problematic**: Soft hyphen (U+00AD), directional formatting characters, or any invisible/non-printable character
+- **Zero-width**: U+200B (ZWSP), U+200C (ZWNJ), U+200D (ZWJ), U+2060 (word joiner), U+2063 (invisible separator)
+- **Non-breaking / other spaces**: U+00A0 (NBSP), U+1680 (Ogham), U+180E (Mongolian vowel separator), U+2000–U+200A (en/em quad, figure space, thin space, etc.), U+202F (narrow NBSP), U+205F (medium math space), U+3000 (ideographic space), U+FEFF (BOM)
+- **Line/paragraph**: U+2028 (line separator), U+2029 (paragraph separator)
+- **Other**: U+00AD (soft hyphen), control characters (U+0000–U+001F, U+007F), directional formatting
+
+### /gremlin-clean
+
+When the user runs `/gremlin-clean`, follow **`commands/gremlin-clean.md`**: run `~/.cursor/scripts/strip-gremlins.py` on the target file(s) and report. Command is defined in `commands/` so it appears in the / menu.
 
 ### AI Enforcement
 

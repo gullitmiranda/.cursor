@@ -8,7 +8,7 @@ This document provides examples of how to set up Cursor settings for different t
 
 **Project Structure**:
 
-```
+```plaintext
 my-web-app/
 ├── .cursor/
 │   ├── skills/
@@ -30,8 +30,8 @@ my-web-app/
 
 **Project Structure**:
 
-```
-monorepo/
+```plaintext
+my-monorepo/
 ├── .cursor/
 ├── packages/
 │   ├── frontend/
@@ -71,8 +71,12 @@ monorepo/
 ### Customizing Behavior
 
 1. Edit the relevant `skills/<name>/SKILL.md` file
-2. Add project-specific guidelines in skills or in the project's `.cursor/rules.md`
+2. Add project-specific guidelines in skills (or in the project's `.cursor/rules/` or `AGENTS.md` if desired; we use skills as canonical)
 3. Update documentation
+
+### Making the agent always respect constraints (e.g. gremlin characters)
+
+Skills are applied when the agent invokes them. For constraints that must apply in **every** conversation in a given project (e.g. no gremlin characters), you can optionally add a project rule with `alwaysApply: true` in that project's `.cursor/rules/` or put the constraint in the project's `AGENTS.md`. Our canonical source is the quality skill; project rules are optional. Use **`/gremlin-clean`** (defined in `commands/gremlin-clean.md`) to strip gremlins from files when they still appear.
 
 ## 🚀 Integration Examples
 
